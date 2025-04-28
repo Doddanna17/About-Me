@@ -1,8 +1,3 @@
----
-title: About Me - Doddanna B
-meta_description: A dynamic profile of Doddanna B, a Senior Platform Engineer specializing in Java and scalable backend solutions.
----
-
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg?logo=linkedin)](https://www.linkedin.com/in/doddanna/)
 
 I'm Doddanna B, a Senior Platform Engineer with over 10 years of experience building scalable and efficient backend systems. My passion lies in crafting robust solutions with Java and a strong understanding of full-stack development principles. I bring a proven track record of designing, developing, and deploying complex systems, including the successful productionizing of over 22 microservices in just the last 3 years. [cite: 1, 2] My expertise extends to application design and development for both web and Android platforms. [cite: 3]
