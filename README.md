@@ -1,4 +1,3 @@
-# About Doddanna
 # Doddanna
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg?logo=linkedin)](https://www.linkedin.com/in/doddanna/)
