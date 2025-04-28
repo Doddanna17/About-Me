@@ -49,7 +49,6 @@ Throughout my career, I've focused on:
 
 I'm always open to discussing new opportunities, collaborations, or simply connecting with fellow tech enthusiasts.
 
-* Email: [doddannab17@gmail.com](mailto:doddannab17@gmail.com)
 * LinkedIn: [https://www.linkedin.com/in/doddanna/](https://www.linkedin.com/in/doddanna/)
 * GitHub: [https://github.com/Doddanna17](https://github.com/Doddanna17)
 * Location: Bengaluru, India
