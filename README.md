@@ -1,7 +1,5 @@
----
-title: About Me - Doddanna B
-meta_description: A dynamic profile of Doddanna B, a Senior Platform Engineer specializing in Java and scalable backend solutions.
----
+# About Doddanna
+# Doddanna
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue.svg?logo=linkedin)](https://www.linkedin.com/in/doddanna/)
 
