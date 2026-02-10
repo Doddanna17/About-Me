@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#060608"/>
+  <rect x="0" y="0" width="1200" height="630" fill="url(#grad)" opacity="0.3"/>
+  <defs>
+    <radialGradient id="grad" cx="40%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#7c5cfc" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#060608" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <text x="100" y="240" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#f0f0f2" letter-spacing="-2">Doddanna B</text>
+  <text x="100" y="310" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="500" fill="#a8a8b0" letter-spacing="4">STAFF ENGINEER</text>
+  <line x1="100" y1="340" x2="260" y2="340" stroke="#7c5cfc" stroke-width="2"/>
+  <text x="100" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#5c5c66" letter-spacing="3">PLATFORM ARCHITECT</text>
+  <text x="395" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#7c5cfc">&#x2022;</text>
+  <text x="420" y="400" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#5c5c66" letter-spacing="3">BLOCKCHAIN INFRASTRUCTURE</text>
+  <text x="100" y="540" font-family="system-ui, -apple-system, sans-serif" font-size="16" fill="#5c5c66">www.doddanna.com</text>
+</svg>
