@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doddanna B — Staff Engineer · Platform Architect · Blockchain</title>
+  <meta name="description" content="Doddanna B is a Staff Engineer with 11+ years of experience building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="theme-color" content="#060608" id="meta-theme-color">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Doddanna B — Staff Engineer · Platform Architect · Blockchain">
+  <meta property="og:description" content="Staff Engineer with 11+ years building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.doddanna.com">
+  <meta property="og:image" content="https://www.doddanna.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Doddanna B — Staff Engineer, Platform Architect, Blockchain Infrastructure">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Doddanna B">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Doddanna B — Staff Engineer · Platform Architect · Blockchain">
+  <meta name="twitter:description" content="Staff Engineer with 11+ years building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
+  <meta name="twitter:image" content="https://www.doddanna.com/og-image.png">
+  <meta name="twitter:image:alt" content="Doddanna B — Staff Engineer, Platform Architect, Blockchain Infrastructure">
+
+  <link rel="canonical" href="https://www.doddanna.com">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Google Analytics (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TJQ57QLSCH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TJQ57QLSCH');
+  </script>
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Doddanna B",
+    "jobTitle": "Staff Engineer",
+    "url": "https://www.doddanna.com",
+    "email": "doddannab17@gmail.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/doddanna/",
+      "https://github.com/Doddanna17"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bangalore",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": [
+      "Blockchain Infrastructure",
+      "Platform Engineering",
+      "Microservices Architecture",
+      "Distributed Systems",
+      "Java",
+      "TypeScript",
+      "Spring Boot",
+      "Kubernetes"
+    ],
+    "description": "Staff Engineer with 11+ years of experience building blockchain infrastructure, platform services, and distributed systems across 4 industries."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Doddanna B — Staff Engineer",
+    "url": "https://www.doddanna.com"
+  }
+  </script>
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function(){try{var t=localStorage.getItem('theme');if(t){document.documentElement.setAttribute('data-theme',t)}else if(window.matchMedia('(prefers-color-scheme:light)').matches){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.setAttribute('data-theme','dark')}}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
+  </script>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #060608;
+      --bg-card: #0e0e12;
+      --surface: #141418;
+      --border: #1e1e24;
+      --border-hover: #2e2e38;
+      --text: #f0f0f2;
+      --text-secondary: #a8a8b0;
+      --text-muted: #5c5c66;
+      --accent: #7c5cfc;
+      --accent-light: #9b7fff;
+      --accent-dim: #6344d4;
+      --accent-glow: rgba(124, 92, 252, 0.35);
+      --teal: #2dd4a8;
+      --teal-glow: rgba(45, 212, 168, 0.15);
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* ── Light Theme ── */
+    [data-theme="light"] {
+      --bg: #f6f6f9;
+      --bg-card: #ffffff;
+      --surface: #eeeef2;
+      --border: #dddde2;
+      --border-hover: #c8c8d0;
+      --text: #1a1a22;
+      --text-secondary: #44444e;
+      --text-muted: #888894;
+      --accent: #6344d4;
+      --accent-light: #7c5cfc;
+      --accent-dim: #5636b8;
+      --accent-glow: rgba(99, 68, 212, 0.2);
+      --teal: #1aab88;
+      --teal-glow: rgba(26, 171, 136, 0.1);
+    }
+
+    /* Smooth theme transition */
+    html { scroll-behavior: smooth; }
+    html, html * {
+      transition-property: background-color, border-color, color, box-shadow, fill, stroke;
+    }
+    html.theme-transitioning, html.theme-transitioning * {
+      transition-duration: 0.4s !important;
+      transition-timing-function: ease !important;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* ── Custom Cursor ── */
+    .cursor {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 16px;
+      border: 1.5px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99999;
+      transition: width 0.3s var(--ease-spring), height 0.3s var(--ease-spring),
+                  border-color 0.3s, background 0.3s, opacity 0.3s;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: difference;
+      will-change: transform;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      transform: translate(-50%, -50%);
+      opacity: 0.4;
+      filter: blur(40px);
+      will-change: transform;
+    }
+
+    .cursor.hovering {
+      width: 48px;
+      height: 48px;
+      background: rgba(124, 92, 252, 0.08);
+      border-color: var(--accent-light);
+    }
+
+    /* Hide custom cursor on touch devices */
+    @media (hover: none) {
+      body { cursor: auto; }
+      .cursor, .cursor-glow { display: none; }
+    }
+
+    /* ── Film Grain ── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99998;
+      opacity: 0.018;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ── Skip Link ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 0 0 8px 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      z-index: 100000;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* ── Progress Bar ── */
+    .scroll-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-light), var(--teal));
+      z-index: 99997;
+      width: 0%;
+      will-change: width;
+    }
+
+    /* ── Focus ── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* ── Page Entrance ── */
+    .page-loader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 100001;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .page-loader.done {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-bar {
+      width: 48px;
+      height: 2px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .loader-bar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      animation: loaderSlide 0.8s ease-in-out;
+    }
+
+    @keyframes loaderSlide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(0); }
+    }
+
+    /* ── Sections ── */
+    section { padding: 128px 24px; position: relative; }
+    .section-inner { max-width: 960px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 48px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-label::after {
+      content: '';
+      height: 1px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      transition: width 1s var(--ease-out-expo);
+    }
+
+    .section-label.visible::after { width: 64px; }
+
+    /* ── Reveal ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.9s var(--ease-out-quart), transform 0.9s var(--ease-out-quart);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ══════════════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════════════ */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 48px 24px;
+      overflow: hidden;
+    }
+
+    /* Animated gradient mesh */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+
+    .hero-bg .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.4;
+      will-change: transform;
+    }
+
+    .blob-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      top: 30%;
+      left: 40%;
+      animation: blobDrift1 16s ease-in-out infinite alternate;
+    }
+
+    .blob-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+      top: 50%;
+      right: 20%;
+      animation: blobDrift2 20s ease-in-out infinite alternate;
+    }
+
+    .blob-3 {
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(252, 92, 125, 0.08) 0%, transparent 70%);
+      bottom: 20%;
+      left: 15%;
+      animation: blobDrift3 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes blobDrift1 {
+      0% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.05); }
+      66% { transform: translate(-20px, 20px) scale(0.95); }
+      100% { transform: translate(10px, -10px) scale(1.02); }
+    }
+
+    @keyframes blobDrift2 {
+      0% { transform: translate(0, 0) scale(1); }
+      50% { transform: translate(-50px, 30px) scale(1.1); }
+      100% { transform: translate(20px, -40px) scale(0.9); }
+    }
+
+    @keyframes blobDrift3 {
+      0% { transform: translate(0, 0); }
+      50% { transform: translate(30px, -20px); }
+      100% { transform: translate(-10px, 30px); }
+    }
+
+    /* Grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 10%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black 10%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    /* Hero entrance - staggered */
+    .hero-name, .hero-title, .hero-location, .hero-cta {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+    }
+
+    .hero.loaded .hero-name {
+      opacity: 1; transform: none;
+      transition: opacity 1s var(--ease-out-expo) 0.3s, transform 1s var(--ease-out-expo) 0.3s;
+    }
+    .hero.loaded .hero-title {
+      opacity: 1; transform: none;
+      transition: opacity 1s var(--ease-out-expo) 0.5s, transform 1s var(--ease-out-expo) 0.5s;
+    }
+    .hero.loaded .hero-location {
+      opacity: 1; transform: none;
+      transition: opacity 1s var(--ease-out-expo) 0.7s, transform 1s var(--ease-out-expo) 0.7s;
+    }
+    .hero.loaded .hero-cta {
+      opacity: 1; transform: none;
+      transition: opacity 1s var(--ease-out-expo) 0.9s, transform 1s var(--ease-out-expo) 0.9s;
+    }
+
+    /* Parallax fade on scroll */
+    .hero-content {
+      will-change: transform, opacity;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    /* Text scramble container */
+    .hero-name .char {
+      display: inline-block;
+      transition: transform 0.3s var(--ease-spring);
+    }
+
+    .hero-name .char:hover {
+      transform: translateY(-4px) scale(1.1);
+      color: var(--accent-light);
+    }
+
+    .hero-name .space { width: 0.3em; }
+
+    .hero-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .hero-title .dot {
+      display: inline-block;
+      width: 4px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 50%;
+      vertical-align: middle;
+      margin: 0 16px;
+      animation: dotPulse 3s ease-in-out infinite;
+    }
+
+    .hero-title .dot:nth-child(2) { animation-delay: 0.5s; }
+
+    @keyframes dotPulse {
+      0%, 100% { opacity: 0.4; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    .hero-location {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 40px;
+    }
+
+    .hero-location svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      opacity: 0;
+      z-index: 2;
+    }
+
+    .hero.loaded .scroll-indicator {
+      opacity: 1;
+      transition: opacity 1s ease 1.4s;
+    }
+
+    .scroll-indicator.faded { opacity: 0 !important; transition: opacity 0.3s; }
+
+    .scroll-mouse {
+      width: 20px;
+      height: 32px;
+      border: 1.5px solid var(--text-muted);
+      border-radius: 12px;
+      position: relative;
+    }
+
+    .scroll-mouse::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 50%;
+      width: 2px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 2px;
+      transform: translateX(-50%);
+      animation: scrollDot 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDot {
+      0%, 100% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 0.3; transform: translateX(-50%) translateY(10px); }
+    }
+
+    /* ══════════════════════════════════════════════════
+       STATS
+    ══════════════════════════════════════════════════ */
+    .stats-strip {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
+      padding: 56px 24px;
+      position: relative;
+    }
+
+    .stats-strip::before, .stats-strip::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    .stats-strip::before { top: 0; }
+    .stats-strip::after { bottom: 0; }
+
+    .stat { text-align: center; }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-number .accent { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-top: 8px;
+    }
+
+    .stat-unit {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+
+    /* ══════════════════════════════════════════════════
+       ABOUT
+    ══════════════════════════════════════════════════ */
+    .about-text {
+      max-width: 680px;
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      line-height: 1.9;
+    }
+
+    .about-text p + p { margin-top: 28px; }
+
+    .about-highlight {
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+      display: inline;
+      padding: 0 2px;
+    }
+
+    .about-highlight::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 1px;
+      transition: width 1s var(--ease-out-expo);
+    }
+
+    .about-highlight.lit::after { width: 100%; }
+
+    /* ══════════════════════════════════════════════════
+       EXPERTISE - 3D Tilt Cards
+    ══════════════════════════════════════════════════ */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 640px) {
+      .expertise-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .expertise-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.5s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    /* Spotlight that follows cursor inside card */
+    .card-spotlight {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.4s;
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .expertise-card:hover .card-spotlight { opacity: 1; }
+
+    .expertise-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    .expertise-card h3 {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: 0.06em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .expertise-card h3 svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.76rem;
+      padding: 8px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-secondary);
+      cursor: default;
+      transition: all 0.3s var(--ease-out-quart);
+    }
+
+    .tag:hover {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(124, 92, 252, 0.1);
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 6px 20px rgba(124, 92, 252, 0.2);
+    }
+
+    /* Neighbor tags react */
+    .tag.neighbor {
+      transform: translateY(-1px);
+      border-color: var(--border-hover);
+    }
+
+    .tag.reveal {
+      transition: opacity 0.5s var(--ease-out-quart), transform 0.5s var(--ease-out-quart),
+                  color 0.3s, border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    }
+
+    /* ══════════════════════════════════════════════════
+       CONNECT
+    ══════════════════════════════════════════════════ */
+    .connect-section { text-align: center; }
+
+    .connect-heading {
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 12px;
+      line-height: 1.1;
+      background: linear-gradient(90deg, var(--text) 0%, var(--accent-light) 30%, var(--text) 55%, var(--teal) 80%, var(--text) 100%);
+      background-size: 200% 100%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 6s ease-in-out infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 100% 50%; }
+      50% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+
+    .connect-sub {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 48px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+
+    .connect-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    /* ── Magnetic Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 34px;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 14px;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      will-change: transform;
+      transition: transform 0.4s var(--ease-out-quart), box-shadow 0.4s ease, background 0.3s, border-color 0.3s;
+    }
+
+    .btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      transition: transform 0.4s var(--ease-spring);
+    }
+
+    .btn:hover svg { transform: scale(1.15) rotate(-4deg); }
+    .btn:active { transform: scale(0.97) !important; transition-duration: 0.1s; }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.1));
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn-primary:hover::before { opacity: 1; }
+
+    .btn-primary:hover {
+      box-shadow: 0 8px 40px var(--accent-glow), 0 0 80px rgba(124, 92, 252, 0.15);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+      background: var(--bg-card);
+    }
+
+    /* Ripple */
+    .btn .ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      transform: scale(0);
+      animation: rippleAnim 0.7s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes rippleAnim {
+      to { transform: scale(4); opacity: 0; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════════ */
+    footer {
+      padding: 48px 24px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      letter-spacing: 0.03em;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    footer .heart {
+      display: inline-block;
+      color: var(--accent);
+      animation: heartbeat 2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.2); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.15); }
+      60% { transform: scale(1); }
+    }
+
+    /* ══════════════════════════════════════════════════
+       JOURNEY TIMELINE
+    ══════════════════════════════════════════════════ */
+    .journey-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-progress {
+      position: absolute;
+      left: 7px;
+      top: 0;
+      width: 2px;
+      height: 0%;
+      background: linear-gradient(180deg, var(--accent), var(--teal));
+      transition: height 0.1s linear;
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-bottom: 48px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.7s var(--ease-out-quart), transform 0.7s var(--ease-out-quart);
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-entry:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      z-index: 2;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+
+    .timeline-entry.visible .timeline-dot {
+      border-color: var(--accent);
+    }
+
+    .timeline-entry.current .timeline-dot {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+      animation: dotPulseLive 2.5s ease-in-out infinite;
+    }
+
+    @keyframes dotPulseLive {
+      0%, 100% { box-shadow: 0 0 0 4px var(--accent-glow); }
+      50% { box-shadow: 0 0 0 8px var(--accent-glow), 0 0 20px var(--accent-glow); }
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      transition: transform 0.4s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .timeline-company {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-role {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-duration {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-industry {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      background: rgba(124, 92, 252, 0.08);
+      border: 1px solid rgba(124, 92, 252, 0.15);
+      border-radius: 20px;
+      color: var(--accent-light);
+    }
+
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .journey-timeline { padding-left: 32px; }
+      .timeline-dot { left: -32px; width: 14px; height: 14px; }
+      .timeline-line, .timeline-progress { left: 6px; }
+      .timeline-card { padding: 20px; }
+      .timeline-header { gap: 10px; }
+      .timeline-logo { width: 36px; height: 36px; font-size: 1rem; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       INDUSTRIES
+    ══════════════════════════════════════════════════ */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .industry-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    .industry-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .industry-card .card-spotlight { border-radius: inherit; }
+
+    .industry-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(124, 92, 252, 0.08);
+      border: 1px solid rgba(124, 92, 252, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .industry-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+    }
+
+    .industry-info { flex: 1; min-width: 0; }
+
+    .industry-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .industry-company {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-light);
+      margin-bottom: 6px;
+    }
+
+    .industry-contribution {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .industry-card { padding: 20px; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       LIGHT THEME OVERRIDES
+    ══════════════════════════════════════════════════ */
+    [data-theme="light"] body::after { opacity: 0.012; }
+
+    [data-theme="light"] .cursor { border-color: var(--accent); mix-blend-mode: normal; }
+    [data-theme="light"] .cursor.hovering { background: rgba(99, 68, 212, 0.06); }
+    [data-theme="light"] .cursor-glow { opacity: 0.2; }
+
+    [data-theme="light"] .hero-grid {
+      background-image:
+        linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    }
+
+    [data-theme="light"] .blob-1 { background: radial-gradient(circle, rgba(99, 68, 212, 0.12) 0%, transparent 70%); opacity: 0.5; }
+    [data-theme="light"] .blob-2 { background: radial-gradient(circle, rgba(26, 171, 136, 0.08) 0%, transparent 70%); opacity: 0.5; }
+    [data-theme="light"] .blob-3 { background: radial-gradient(circle, rgba(212, 68, 99, 0.06) 0%, transparent 70%); opacity: 0.5; }
+
+    [data-theme="light"] .page-loader { background: var(--bg); }
+
+    [data-theme="light"] .tag {
+      background: var(--surface);
+      border-color: var(--border);
+      color: var(--text-secondary);
+    }
+    [data-theme="light"] .tag:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(99, 68, 212, 0.06);
+      box-shadow: 0 6px 20px rgba(99, 68, 212, 0.12);
+    }
+    [data-theme="light"] .tag.neighbor {
+      border-color: var(--border-hover);
+    }
+
+    [data-theme="light"] .expertise-card:hover {
+      box-shadow: 0 20px 60px -15px rgba(0, 0, 0, 0.08);
+    }
+
+    [data-theme="light"] .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+    }
+    [data-theme="light"] .btn-primary:hover {
+      box-shadow: 0 8px 40px rgba(99, 68, 212, 0.2), 0 0 60px rgba(99, 68, 212, 0.08);
+    }
+    [data-theme="light"] .btn-secondary:hover {
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="light"] .scroll-progress {
+      background: linear-gradient(90deg, var(--accent-dim), var(--accent), var(--accent-light), var(--teal));
+    }
+
+    [data-theme="light"] .stats-strip::before,
+    [data-theme="light"] .stats-strip::after {
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    [data-theme="light"] footer::before {
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+    }
+
+    [data-theme="light"] .about-highlight::after {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+
+    [data-theme="light"] .scroll-mouse { border-color: var(--text-muted); }
+
+    [data-theme="light"] .timeline-card:hover {
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="light"] .industry-card:hover {
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="light"] .timeline-industry {
+      background: rgba(99, 68, 212, 0.06);
+      border-color: rgba(99, 68, 212, 0.12);
+    }
+
+    [data-theme="light"] .industry-icon {
+      background: rgba(99, 68, 212, 0.06);
+      border-color: rgba(99, 68, 212, 0.1);
+    }
+
+    /* ── Theme Toggle Button ── */
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 99996;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-spring), box-shadow 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.08);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .theme-toggle:active {
+      transform: scale(0.95);
+    }
+
+    .theme-toggle svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.5s var(--ease-spring), opacity 0.3s;
+    }
+
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+
+    /* Spin on toggle */
+    .theme-toggle.spinning svg {
+      transform: rotate(360deg);
+    }
+
+    @media (hover: none) {
+      .theme-toggle { cursor: pointer; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       REDUCED MOTION
+    ══════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal, .hero-name, .hero-title, .hero-location, .hero-cta, .timeline-entry { opacity: 1; transform: none; }
+      .cursor, .cursor-glow { display: none; }
+      body { cursor: auto; }
+      .page-loader { display: none; }
+      .blob { animation: none !important; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      section { padding: 80px 20px; }
+      .hero { padding: 32px 20px; }
+      .stats-strip { gap: 36px; padding: 44px 20px; }
+      .expertise-card { padding: 24px; }
+      .hero-cta { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 260px; justify-content: center; }
+      .connect-buttons { flex-direction: column; align-items: center; }
+    }
+
+    @media (min-width: 768px) {
+      .stats-strip { gap: 56px; }
+    }
+
+    @media (min-width: 1024px) {
+      .stats-strip { gap: 72px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <!-- Page Loader -->
+  <div class="page-loader" aria-hidden="true">
+    <div class="loader-bar"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <!-- Progress Bar -->
+  <div class="scroll-progress" role="presentation" aria-hidden="true"></div>
+
+  <!-- Theme Toggle -->
+  <button class="theme-toggle" aria-label="Toggle light and dark theme" title="Toggle theme">
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+  </button>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" aria-label="Introduction">
+    <div class="hero-bg" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <div class="hero-grid" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-name" aria-label="Doddanna B">Doddanna B</h1>
+      <p class="hero-title">
+        Staff Engineer <span class="dot"></span> Platform Architect <span class="dot"></span> Blockchain Infrastructure
+      </p>
+      <p class="hero-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Bangalore, India
+      </p>
+      <div class="hero-cta">
+        <a href="https://www.linkedin.com/in/doddanna/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic" aria-label="Connect on LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="https://github.com/Doddanna17" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic" aria-label="View GitHub profile">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="mailto:doddannab17@gmail.com" class="btn btn-secondary magnetic" aria-label="Send an email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-mouse"></div>
+    </div>
+  </section>
+
+  <!-- ═══ MAIN ═══ -->
+  <main id="main">
+
+    <!-- Stats -->
+    <div class="stats-strip" aria-label="Key achievements">
+      <div class="stat reveal">
+        <div class="stat-number"><span data-count="11">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-number"><span data-count="25">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Microservices Built</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-number"><span data-count="4">0</span></div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-number"><span class="accent">&lt;</span><span data-count="100">0</span><span class="stat-unit">ms</span></div>
+        <div class="stat-label">Latency Target</div>
+      </div>
+    </div>
+
+    <!-- Journey -->
+    <section aria-labelledby="journey-heading">
+      <div class="section-inner">
+        <h2 class="section-label reveal" id="journey-heading">Journey</h2>
+        <div class="journey-timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <div class="timeline-progress" aria-hidden="true"></div>
+
+          <div class="timeline-entry current" data-stagger="0">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">B</div>
+                <div>
+                  <div class="timeline-company">BitGo</div>
+                  <div class="timeline-role">Staff Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Sep 2024 &ndash; Present</span>
+                <span class="timeline-industry">Blockchain &amp; Digital Assets</span>
+              </div>
+              <p class="timeline-desc">Building staking platform microservices for institutional-grade digital asset infrastructure. Shipped onboarding and stablecoin services.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="1">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">E</div>
+                <div>
+                  <div class="timeline-company">Embibe</div>
+                  <div class="timeline-role">Staff Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Jan 2020 &ndash; Aug 2024</span>
+                <span class="timeline-industry">EdTech Platform</span>
+              </div>
+              <p class="timeline-desc">Owned 22+ platform services including auth, payments, campaigns, and notifications. Built sub-100ms OAuth2 system.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="2">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">R</div>
+                <div>
+                  <div class="timeline-company">Reward360</div>
+                  <div class="timeline-role">Tech Lead</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Jun 2017 &ndash; Jan 2020</span>
+                <span class="timeline-industry">Loyalty Program</span>
+              </div>
+              <p class="timeline-desc">Worked on the SCB loyalty platform integration spanning 5 countries. Built Axis Bank modules including order management, admin portal, and campaign systems.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="3">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">H</div>
+                <div>
+                  <div class="timeline-company">HireWand</div>
+                  <div class="timeline-role">Software Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Aug 2016 &ndash; May 2017</span>
+                <span class="timeline-industry">HR Tech</span>
+              </div>
+              <p class="timeline-desc">Built recruitment automation tools and a Chrome extension for candidate sourcing across job platforms.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="4">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">U</div>
+                <div>
+                  <div class="timeline-company">Uttara Info Solutions</div>
+                  <div class="timeline-role">Software Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Feb 2015 &ndash; Jul 2016</span>
+                <span class="timeline-industry">Software Services</span>
+              </div>
+              <p class="timeline-desc">Developed enterprise Java applications and gained foundational experience in backend systems and database design.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section aria-labelledby="about-heading">
+      <div class="section-inner">
+        <h2 class="section-label reveal" id="about-heading">About</h2>
+        <div class="about-text">
+          <p class="reveal">Currently building <span class="about-highlight">blockchain infrastructure</span> at <span class="about-highlight">BitGo</span>, where I work on the staking platform — designing microservices that power institutional-grade digital asset operations. Previously worked on the <span class="about-highlight">Stablecoin</span> team and the <span class="about-highlight">Token Onboarding</span> team, building core services for digital asset workflows.</p>
+          <p class="reveal">Over <span class="about-highlight">11+ years</span>, I've built <span class="about-highlight">25+ microservices</span> across <span class="about-highlight">4 industries</span> — blockchain, edtech, loyalty, and HR tech. The common thread: taking core <span class="about-highlight">platform engineering</span> problems from zero to production. At Embibe, I owned auth, payments, campaigns, and notifications. At Reward360, I worked on the <span class="about-highlight">SCB loyalty platform integration spanning 5 countries</span> and built Axis Bank modules including order management and admin portal.</p>
+          <p class="reveal">Outside of work, I'm a quiet learner — diving into <span class="about-highlight">system design</span>, exploring distributed architectures, and mentoring engineers to think in systems rather than features.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise -->
+    <section aria-labelledby="expertise-heading">
+      <div class="section-inner">
+        <h2 class="section-label reveal" id="expertise-heading">Expertise</h2>
+        <div class="expertise-grid">
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              Languages &amp; Frameworks
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">Java</li>
+              <li class="tag reveal">TypeScript</li>
+              <li class="tag reveal">Spring Boot</li>
+              <li class="tag reveal">Vert.x</li>
+              <li class="tag reveal">Node.js</li>
+              <li class="tag reveal">Dropwizard</li>
+              <li class="tag reveal">Hibernate</li>
+              <li class="tag reveal">Python</li>
+              <li class="tag reveal">JavaScript</li>
+              <li class="tag reveal">Groovy</li>
+            </ul>
+          </div>
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              Data &amp; Messaging
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">PostgreSQL</li>
+              <li class="tag reveal">MongoDB</li>
+              <li class="tag reveal">Redis</li>
+              <li class="tag reveal">Kafka</li>
+              <li class="tag reveal">RabbitMQ</li>
+              <li class="tag reveal">Oracle</li>
+              <li class="tag reveal">Couchbase</li>
+            </ul>
+          </div>
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              Cloud &amp; DevOps
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">Docker</li>
+              <li class="tag reveal">Kubernetes</li>
+              <li class="tag reveal">Azure</li>
+              <li class="tag reveal">Cloudflare</li>
+              <li class="tag reveal">Jenkins</li>
+            </ul>
+          </div>
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+              Observability &amp; Practices
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">NewRelic</li>
+              <li class="tag reveal">Loggly</li>
+              <li class="tag reveal">PagerDuty</li>
+              <li class="tag reveal">OAuth2/JWT</li>
+              <li class="tag reveal">Distributed Systems</li>
+              <li class="tag reveal">CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section aria-labelledby="industries-heading">
+      <div class="section-inner">
+        <h2 class="section-label reveal" id="industries-heading">Industries</h2>
+        <div class="industries-grid">
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M7 15h4"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">Blockchain &amp; Digital Assets</div>
+              <div class="industry-company">BitGo</div>
+              <div class="industry-contribution">Staking platform microservices for institutional digital asset custody</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">EdTech</div>
+              <div class="industry-company">Embibe</div>
+              <div class="industry-contribution">22+ platform services &mdash; auth, payments, campaigns, notifications</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">Loyalty Program</div>
+              <div class="industry-company">Reward360</div>
+              <div class="industry-contribution">SCB loyalty platform spanning 5 countries &amp; Axis Bank modules</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">HR Tech</div>
+              <div class="industry-company">HireWand</div>
+              <div class="industry-contribution">Recruitment automation &amp; Chrome extension for candidate sourcing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect -->
+    <section class="connect-section" aria-labelledby="connect-heading">
+      <div class="section-inner">
+        <h2 class="section-label reveal" id="connect-heading">Connect</h2>
+        <p class="connect-heading reveal">Let's build something great.</p>
+        <p class="connect-sub reveal">Open to conversations about blockchain infrastructure, platform engineering, and system design.</p>
+        <div class="connect-buttons reveal">
+          <a href="https://www.linkedin.com/in/doddanna/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic" aria-label="Connect on LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://github.com/Doddanna17" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic" aria-label="View GitHub profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="mailto:doddannab17@gmail.com" class="btn btn-secondary magnetic" aria-label="Send an email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
+            Email
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; <span id="year"></span> Doddanna B &mdash; Built with <span class="heart">&hearts;</span></p>
+  </footer>
+
+  <script>
+  (function() {
+    'use strict';
+
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isTouch = window.matchMedia('(hover: none)').matches;
+    var html = document.documentElement;
+    var metaTheme = document.getElementById('meta-theme-color');
+
+    /* ══════════════════════════════════════════════════
+       THEME TOGGLE
+    ══════════════════════════════════════════════════ */
+    function getStoredTheme() {
+      try { return localStorage.getItem('theme'); } catch(e) { return null; }
+    }
+
+    function getSystemTheme() {
+      return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    }
+
+    function applyTheme(theme, animate) {
+      if (animate && !reduced) {
+        html.classList.add('theme-transitioning');
+        setTimeout(function() { html.classList.remove('theme-transitioning'); }, 450);
+      }
+      html.setAttribute('data-theme', theme);
+      metaTheme.setAttribute('content', theme === 'light' ? '#f6f6f9' : '#060608');
+      try { localStorage.setItem('theme', theme); } catch(e) {}
+    }
+
+    /* Initialize: stored > system > dark */
+    var initialTheme = getStoredTheme() || getSystemTheme();
+    applyTheme(initialTheme, false);
+
+    /* Toggle button */
+    var toggleBtn = document.querySelector('.theme-toggle');
+    toggleBtn.addEventListener('click', function() {
+      var current = html.getAttribute('data-theme') || 'dark';
+      var next = current === 'dark' ? 'light' : 'dark';
+      toggleBtn.classList.add('spinning');
+      setTimeout(function() { toggleBtn.classList.remove('spinning'); }, 500);
+      applyTheme(next, true);
+    });
+
+    /* Listen for system preference changes */
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', function(e) {
+      if (!getStoredTheme()) {
+        applyTheme(e.matches ? 'light' : 'dark', true);
+      }
+    });
+
+    /* ── Year ── */
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ══════════════════════════════════════════════════
+       PAGE LOADER
+    ══════════════════════════════════════════════════ */
+    var loader = document.querySelector('.page-loader');
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        loader.classList.add('done');
+        document.querySelector('.hero').classList.add('loaded');
+        initNameChars();
+      }, 600);
+    });
+
+    /* ══════════════════════════════════════════════════
+       TEXT SCRAMBLE ON HERO NAME
+    ══════════════════════════════════════════════════ */
+    var glyphChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
+    var heroNameEl = document.querySelector('.hero-name');
+    var nameText = 'Doddanna B';
+
+    function initNameChars() {
+      heroNameEl.innerHTML = '';
+      for (var i = 0; i < nameText.length; i++) {
+        var span = document.createElement('span');
+        if (nameText[i] === ' ') {
+          span.className = 'char space';
+          span.innerHTML = '&nbsp;';
+        } else {
+          span.className = 'char';
+          span.textContent = glyphChars[Math.floor(Math.random() * glyphChars.length)];
+          span.setAttribute('data-final', nameText[i]);
+          span.setAttribute('data-index', i);
+        }
+        heroNameEl.appendChild(span);
+      }
+
+      /* Scramble-reveal each character with staggered timing */
+      var chars = heroNameEl.querySelectorAll('.char[data-final]');
+      chars.forEach(function(ch) {
+        var idx = parseInt(ch.getAttribute('data-index'));
+        var finalChar = ch.getAttribute('data-final');
+        var startDelay = 400 + idx * 60;
+        var scrambleCount = 0;
+        var maxScrambles = 4 + Math.floor(Math.random() * 4);
+
+        setTimeout(function() {
+          var interval = setInterval(function() {
+            if (scrambleCount >= maxScrambles) {
+              ch.textContent = finalChar;
+              clearInterval(interval);
+              return;
+            }
+            ch.textContent = glyphChars[Math.floor(Math.random() * glyphChars.length)];
+            scrambleCount++;
+          }, 50);
+        }, startDelay);
+      });
+    }
+
+    /* ══════════════════════════════════════════════════
+       CUSTOM CURSOR
+    ══════════════════════════════════════════════════ */
+    if (!isTouch && !reduced) {
+      var cursor = document.querySelector('.cursor');
+      var cursorGlow = document.querySelector('.cursor-glow');
+      var mouseX = 0, mouseY = 0;
+      var cursorX = 0, cursorY = 0;
+      var glowX = 0, glowY = 0;
+
+      document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      });
+
+      (function animCursor() {
+        /* Cursor follows tightly */
+        cursorX += (mouseX - cursorX) * 0.2;
+        cursorY += (mouseY - cursorY) * 0.2;
+        cursor.style.transform = 'translate(' + cursorX + 'px, ' + cursorY + 'px) translate(-50%, -50%)';
+
+        /* Glow follows loosely */
+        glowX += (mouseX - glowX) * 0.07;
+        glowY += (mouseY - glowY) * 0.07;
+        cursorGlow.style.transform = 'translate(' + glowX + 'px, ' + glowY + 'px) translate(-50%, -50%)';
+
+        requestAnimationFrame(animCursor);
+      })();
+
+      /* Hover state for interactive elements */
+      var interactives = document.querySelectorAll('a, button, .tag, .btn, .theme-toggle');
+      interactives.forEach(function(el) {
+        el.addEventListener('mouseenter', function() { cursor.classList.add('hovering'); });
+        el.addEventListener('mouseleave', function() { cursor.classList.remove('hovering'); });
+      });
+    }
+
+    /* ══════════════════════════════════════════════════
+       SCROLL PROGRESS + HERO PARALLAX
+    ══════════════════════════════════════════════════ */
+    var progressBar = document.querySelector('.scroll-progress');
+    var scrollIndicator = document.querySelector('.scroll-indicator');
+    var heroContent = document.querySelector('.hero-content');
+    var ticking = false;
+
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          var scrollTop = window.pageYOffset;
+          var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          progressBar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+
+          /* Fade scroll indicator */
+          if (scrollTop > 60) scrollIndicator.classList.add('faded');
+          else scrollIndicator.classList.remove('faded');
+
+          /* Hero parallax */
+          if (!reduced && scrollTop < window.innerHeight) {
+            var ratio = scrollTop / window.innerHeight;
+            heroContent.style.transform = 'translateY(' + (scrollTop * 0.3) + 'px) scale(' + (1 - ratio * 0.1) + ')';
+            heroContent.style.opacity = 1 - ratio * 1.2;
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ══════════════════════════════════════════════════
+       MAGNETIC BUTTONS
+    ══════════════════════════════════════════════════ */
+    if (!isTouch && !reduced) {
+      document.querySelectorAll('.magnetic').forEach(function(btn) {
+        btn.addEventListener('mousemove', function(e) {
+          var rect = btn.getBoundingClientRect();
+          var x = e.clientX - rect.left - rect.width / 2;
+          var y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = 'translate(' + (x * 0.2) + 'px, ' + (y * 0.2) + 'px)';
+        });
+
+        btn.addEventListener('mouseleave', function() {
+          btn.style.transform = 'translate(0, 0)';
+          btn.style.transition = 'transform 0.5s var(--ease-out-expo)';
+          setTimeout(function() { btn.style.transition = ''; }, 500);
+        });
+      });
+    }
+
+    /* ── Button Ripple ── */
+    document.querySelectorAll('.btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        var sz = Math.max(rect.width, rect.height);
+        ripple.style.width = ripple.style.height = sz + 'px';
+        ripple.style.left = (e.clientX - rect.left - sz / 2) + 'px';
+        ripple.style.top = (e.clientY - rect.top - sz / 2) + 'px';
+        btn.appendChild(ripple);
+        ripple.addEventListener('animationend', function() { ripple.remove(); });
+      });
+    });
+
+    /* ══════════════════════════════════════════════════
+       3D TILT CARDS WITH SPOTLIGHT
+    ══════════════════════════════════════════════════ */
+    if (!isTouch && !reduced) {
+      document.querySelectorAll('[data-tilt]').forEach(function(card) {
+        var spotlight = card.querySelector('.card-spotlight');
+
+        card.addEventListener('mousemove', function(e) {
+          var rect = card.getBoundingClientRect();
+          var x = e.clientX - rect.left;
+          var y = e.clientY - rect.top;
+          var centerX = rect.width / 2;
+          var centerY = rect.height / 2;
+          var rotateX = (y - centerY) / centerY * -6;
+          var rotateY = (x - centerX) / centerX * 6;
+
+          card.style.transform = 'perspective(800px) rotateX(' + rotateX + 'deg) rotateY(' + rotateY + 'deg) scale(1.02)';
+
+          if (spotlight) {
+            spotlight.style.background = 'radial-gradient(circle at ' + x + 'px ' + y + 'px, rgba(124, 92, 252, 0.06) 0%, transparent 60%)';
+          }
+        });
+
+        card.addEventListener('mouseleave', function() {
+          card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) scale(1)';
+          card.style.transition = 'transform 0.6s var(--ease-out-expo), border-color 0.3s, box-shadow 0.3s';
+          setTimeout(function() { card.style.transition = ''; }, 600);
+        });
+
+        card.addEventListener('mouseenter', function() {
+          card.style.transition = 'border-color 0.3s, box-shadow 0.3s';
+        });
+      });
+    }
+
+    /* ══════════════════════════════════════════════════
+       TAG NEIGHBOR EFFECT
+    ══════════════════════════════════════════════════ */
+    document.querySelectorAll('.tag-list').forEach(function(list) {
+      var tags = Array.prototype.slice.call(list.querySelectorAll('.tag'));
+
+      tags.forEach(function(tag, i) {
+        tag.addEventListener('mouseenter', function() {
+          /* Lift neighbors */
+          if (tags[i - 1]) tags[i - 1].classList.add('neighbor');
+          if (tags[i + 1]) tags[i + 1].classList.add('neighbor');
+        });
+
+        tag.addEventListener('mouseleave', function() {
+          if (tags[i - 1]) tags[i - 1].classList.remove('neighbor');
+          if (tags[i + 1]) tags[i + 1].classList.remove('neighbor');
+        });
+      });
+    });
+
+    /* ══════════════════════════════════════════════════
+       ANIMATED COUNTERS
+    ══════════════════════════════════════════════════ */
+    var counters = document.querySelectorAll('[data-count]');
+    var countObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          var target = parseInt(el.getAttribute('data-count'));
+          var duration = 1600;
+          var start = performance.now();
+
+          function easeOutExpo(t) {
+            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+          }
+
+          (function tick(now) {
+            var elapsed = now - start;
+            var progress = Math.min(elapsed / duration, 1);
+            var easedProgress = easeOutExpo(progress);
+            el.textContent = Math.round(target * easedProgress);
+            if (progress < 1) requestAnimationFrame(tick);
+          })(start);
+
+          countObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function(c) { countObserver.observe(c); });
+
+    /* ══════════════════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════════════════ */
+    if (!reduced) {
+      var reveals = document.querySelectorAll('.reveal');
+      var revealObs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var el = entry.target;
+
+            if (el.classList.contains('tag')) {
+              var list = el.closest('.tag-list');
+              if (list) {
+                var siblings = Array.prototype.slice.call(list.querySelectorAll('.tag'));
+                el.style.transitionDelay = (siblings.indexOf(el) * 80) + 'ms';
+              }
+            }
+
+            if (el.classList.contains('stat')) {
+              var strip = el.closest('.stats-strip');
+              if (strip) {
+                var stats = Array.prototype.slice.call(strip.querySelectorAll('.stat'));
+                el.style.transitionDelay = (stats.indexOf(el) * 150) + 'ms';
+              }
+            }
+
+            el.classList.add('visible');
+            revealObs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+      reveals.forEach(function(el) { revealObs.observe(el); });
+    } else {
+      document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    /* ══════════════════════════════════════════════════
+       ABOUT HIGHLIGHT UNDERLINE REVEAL
+    ══════════════════════════════════════════════════ */
+    document.querySelectorAll('.about-highlight').forEach(function(span, i) {
+      var hlObs = new IntersectionObserver(function(entries) {
+        if (entries[0].isIntersecting) {
+          setTimeout(function() { span.classList.add('lit'); }, i * 250);
+          hlObs.unobserve(span);
+        }
+      }, { threshold: 0.5 });
+      hlObs.observe(span);
+    });
+
+    /* ══════════════════════════════════════════════════
+       JOURNEY TIMELINE ANIMATION
+    ══════════════════════════════════════════════════ */
+    var timelineEntries = document.querySelectorAll('.timeline-entry');
+    var timelineProgress = document.querySelector('.timeline-progress');
+    var timelineLine = document.querySelector('.timeline-line');
+
+    if (timelineEntries.length > 0 && !reduced) {
+      var tlObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var stagger = parseInt(entry.target.getAttribute('data-stagger') || '0');
+            setTimeout(function() {
+              entry.target.classList.add('visible');
+            }, stagger * 150);
+            tlObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      timelineEntries.forEach(function(entry) { tlObserver.observe(entry); });
+
+      /* Animate the progress line based on scroll position within the timeline */
+      if (timelineProgress && timelineLine) {
+        var timelineSection = timelineLine.closest('.journey-timeline');
+        window.addEventListener('scroll', function() {
+          if (!timelineSection) return;
+          var rect = timelineSection.getBoundingClientRect();
+          var sectionTop = rect.top;
+          var sectionHeight = rect.height;
+          var windowHeight = window.innerHeight;
+          var scrolledInto = windowHeight - sectionTop;
+          var progress = Math.max(0, Math.min(1, scrolledInto / (sectionHeight + windowHeight * 0.3)));
+          timelineProgress.style.height = (progress * 100) + '%';
+        }, { passive: true });
+      }
+    } else if (reduced) {
+      timelineEntries.forEach(function(entry) { entry.classList.add('visible'); });
+      if (timelineProgress) timelineProgress.style.height = '100%';
+    }
+
+    /* ══════════════════════════════════════════════════
+       KONAMI CODE EASTER EGG
+    ══════════════════════════════════════════════════ */
+    var konamiSeq = [38,38,40,40,37,39,37,39,66,65];
+    var konamiIdx = 0;
+
+    document.addEventListener('keydown', function(e) {
+      if (e.keyCode === konamiSeq[konamiIdx]) {
+        konamiIdx++;
+        if (konamiIdx === konamiSeq.length) {
+          konamiIdx = 0;
+          fireConfetti();
+        }
+      } else {
+        konamiIdx = 0;
+      }
+    });
+
+    function fireConfetti() {
+      var palette = ['#7c5cfc', '#9b7fff', '#2dd4a8', '#fc5c7d', '#f0f0f2'];
+      for (var i = 0; i < 80; i++) {
+        var p = document.createElement('div');
+        p.setAttribute('aria-hidden', 'true');
+        var size = 4 + Math.random() * 6;
+        p.style.cssText = 'position:fixed;border-radius:' + (Math.random() > 0.5 ? '50%' : '2px') +
+          ';pointer-events:none;z-index:100002;background:' + palette[Math.floor(Math.random() * palette.length)] +
+          ';width:' + size + 'px;height:' + size + 'px;left:' + (Math.random() * 100) + 'vw;top:-10px;';
+        document.body.appendChild(p);
+        var dx = (Math.random() - 0.5) * 300;
+        var dy = window.innerHeight + 100;
+        var rot = Math.random() * 720;
+        var dur = 1200 + Math.random() * 1200;
+        p.animate([
+          { transform: 'translate(0,0) rotate(0deg)', opacity: 1 },
+          { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(' + rot + 'deg)', opacity: 0 }
+        ], { duration: dur, easing: 'cubic-bezier(0.25,0.46,0.45,0.94)', fill: 'forwards' })
+        .onfinish = function() { p.remove(); };
+      }
+    }
+
+  })();
+  </script>
+</body>
+</html>
