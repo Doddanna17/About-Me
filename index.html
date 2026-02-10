@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doddanna B — Staff Engineer</title>
-  <meta name="description" content="Doddanna B is a Staff Engineer with 10+ years of experience building scalable backend systems and distributed architectures.">
+  <meta name="description" content="Doddanna B is a Staff Engineer with 11+ years of experience building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
   <meta name="theme-color" content="#060608" id="meta-theme-color">
   <meta property="og:title" content="Doddanna B — Staff Engineer">
-  <meta property="og:description" content="Staff Engineer | Platform Architect | Java Backend Specialist">
+  <meta property="og:description" content="Staff Engineer · Platform Architect · Blockchain Infrastructure">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.doddanna.com">
   <link rel="canonical" href="https://www.doddanna.com">
@@ -545,6 +545,13 @@
       margin-top: 8px;
     }
 
+    .stat-unit {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 2px;
+    }
+
     /* ══════════════════════════════════════════════════
        ABOUT
     ══════════════════════════════════════════════════ */
@@ -834,6 +841,240 @@
     }
 
     /* ══════════════════════════════════════════════════
+       JOURNEY TIMELINE
+    ══════════════════════════════════════════════════ */
+    .journey-timeline {
+      position: relative;
+      padding-left: 40px;
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 7px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-progress {
+      position: absolute;
+      left: 7px;
+      top: 0;
+      width: 2px;
+      height: 0%;
+      background: linear-gradient(180deg, var(--accent), var(--teal));
+      transition: height 0.1s linear;
+    }
+
+    .timeline-entry {
+      position: relative;
+      padding-bottom: 48px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.7s var(--ease-out-quart), transform 0.7s var(--ease-out-quart);
+    }
+
+    .timeline-entry.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .timeline-entry:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -40px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      z-index: 2;
+      transition: border-color 0.4s, box-shadow 0.4s;
+    }
+
+    .timeline-entry.visible .timeline-dot {
+      border-color: var(--accent);
+    }
+
+    .timeline-entry.current .timeline-dot {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-glow);
+      animation: dotPulseLive 2.5s ease-in-out infinite;
+    }
+
+    @keyframes dotPulseLive {
+      0%, 100% { box-shadow: 0 0 0 4px var(--accent-glow); }
+      50% { box-shadow: 0 0 0 8px var(--accent-glow), 0 0 20px var(--accent-glow); }
+    }
+
+    .timeline-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      transition: transform 0.4s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .timeline-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.4);
+    }
+
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .timeline-company {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-role {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-duration {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-industry {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      background: rgba(124, 92, 252, 0.08);
+      border: 1px solid rgba(124, 92, 252, 0.15);
+      border-radius: 20px;
+      color: var(--accent-light);
+    }
+
+    .timeline-desc {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 640px) {
+      .journey-timeline { padding-left: 32px; }
+      .timeline-dot { left: -32px; width: 14px; height: 14px; }
+      .timeline-line, .timeline-progress { left: 6px; }
+      .timeline-card { padding: 20px; }
+      .timeline-header { gap: 10px; }
+      .timeline-logo { width: 36px; height: 36px; font-size: 1rem; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       INDUSTRIES
+    ══════════════════════════════════════════════════ */
+    .industries-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    @media (min-width: 640px) {
+      .industries-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    .industry-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      transform-style: preserve-3d;
+      transition: transform 0.5s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
+      will-change: transform;
+    }
+
+    .industry-card:hover {
+      border-color: var(--border-hover);
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.4);
+    }
+
+    .industry-card .card-spotlight { border-radius: inherit; }
+
+    .industry-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(124, 92, 252, 0.08);
+      border: 1px solid rgba(124, 92, 252, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .industry-icon svg {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+    }
+
+    .industry-info { flex: 1; min-width: 0; }
+
+    .industry-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 2px;
+    }
+
+    .industry-company {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--accent-light);
+      margin-bottom: 6px;
+    }
+
+    .industry-contribution {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 640px) {
+      .industry-card { padding: 20px; }
+    }
+
+    /* ══════════════════════════════════════════════════
        LIGHT THEME OVERRIDES
     ══════════════════════════════════════════════════ */
     [data-theme="light"] body::after { opacity: 0.012; }
@@ -902,6 +1143,24 @@
 
     [data-theme="light"] .scroll-mouse { border-color: var(--text-muted); }
 
+    [data-theme="light"] .timeline-card:hover {
+      box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="light"] .industry-card:hover {
+      box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.06);
+    }
+
+    [data-theme="light"] .timeline-industry {
+      background: rgba(99, 68, 212, 0.06);
+      border-color: rgba(99, 68, 212, 0.12);
+    }
+
+    [data-theme="light"] .industry-icon {
+      background: rgba(99, 68, 212, 0.06);
+      border-color: rgba(99, 68, 212, 0.1);
+    }
+
     /* ── Theme Toggle Button ── */
     .theme-toggle {
       position: fixed;
@@ -963,7 +1222,7 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      .reveal, .hero-name, .hero-title, .hero-location, .hero-cta { opacity: 1; transform: none; }
+      .reveal, .hero-name, .hero-title, .hero-location, .hero-cta, .timeline-entry { opacity: 1; transform: none; }
       .cursor, .cursor-glow { display: none; }
       body { cursor: auto; }
       .page-loader { display: none; }
@@ -984,7 +1243,11 @@
     }
 
     @media (min-width: 768px) {
-      .stats-strip { gap: 80px; }
+      .stats-strip { gap: 56px; }
+    }
+
+    @media (min-width: 1024px) {
+      .stats-strip { gap: 72px; }
     }
   </style>
 </head>
@@ -1021,7 +1284,7 @@
     <div class="hero-content">
       <h1 class="hero-name" aria-label="Doddanna B"></h1>
       <p class="hero-title">
-        Staff Engineer <span class="dot"></span> Platform Architect <span class="dot"></span> Java Backend Specialist
+        Staff Engineer <span class="dot"></span> Platform Architect <span class="dot"></span> Blockchain Infrastructure
       </p>
       <p class="hero-location">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -1031,6 +1294,10 @@
         <a href="https://www.linkedin.com/in/doddanna/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic" aria-label="Connect on LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           LinkedIn
+        </a>
+        <a href="https://github.com/Doddanna17" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic" aria-label="View GitHub profile">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          GitHub
         </a>
         <a href="mailto:doddannab17@gmail.com" class="btn btn-secondary magnetic" aria-label="Send an email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
@@ -1050,27 +1317,133 @@
     <!-- Stats -->
     <div class="stats-strip" aria-label="Key achievements">
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="10">0</span><span class="accent">+</span></div>
+        <div class="stat-number"><span data-count="11">0</span><span class="accent">+</span></div>
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="20">0</span><span class="accent">+</span></div>
-        <div class="stat-label">Services Owned</div>
+        <div class="stat-number"><span data-count="25">0</span><span class="accent">+</span></div>
+        <div class="stat-label">Microservices Built</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="10">0</span><span class="accent">+</span></div>
-        <div class="stat-label">Engineers Mentored</div>
+        <div class="stat-number"><span data-count="4">0</span></div>
+        <div class="stat-label">Industries</div>
+      </div>
+      <div class="stat reveal">
+        <div class="stat-number"><span class="accent">&lt;</span><span data-count="100">0</span><span class="stat-unit">ms</span></div>
+        <div class="stat-label">Latency Target</div>
       </div>
     </div>
+
+    <!-- Journey -->
+    <section aria-labelledby="journey-heading">
+      <div class="section-inner">
+        <p class="section-label reveal" id="journey-heading" role="heading" aria-level="2">Journey</p>
+        <div class="journey-timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <div class="timeline-progress" aria-hidden="true"></div>
+
+          <div class="timeline-entry current" data-stagger="0">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">B</div>
+                <div>
+                  <div class="timeline-company">BitGo</div>
+                  <div class="timeline-role">Staff Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Sep 2024 &ndash; Present</span>
+                <span class="timeline-industry">Blockchain &amp; Digital Assets</span>
+              </div>
+              <p class="timeline-desc">Building staking platform microservices for institutional-grade digital asset infrastructure. Shipped onboarding and stablecoin services.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="1">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">E</div>
+                <div>
+                  <div class="timeline-company">Embibe</div>
+                  <div class="timeline-role">Staff Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Jan 2020 &ndash; Aug 2024</span>
+                <span class="timeline-industry">EdTech Platform</span>
+              </div>
+              <p class="timeline-desc">Owned 22+ platform services including auth, payments, campaigns, and notifications. Built sub-100ms OAuth2 system serving millions of users.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="2">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">R</div>
+                <div>
+                  <div class="timeline-company">Reward360</div>
+                  <div class="timeline-role">Tech Lead</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Jun 2017 &ndash; Jan 2020</span>
+                <span class="timeline-industry">FinTech &amp; Loyalty</span>
+              </div>
+              <p class="timeline-desc">Led development of loyalty and rewards platforms for Standard Chartered Bank and Axis Bank. Managed high-throughput campaign systems.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="3">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">H</div>
+                <div>
+                  <div class="timeline-company">HireWand</div>
+                  <div class="timeline-role">Software Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Aug 2016 &ndash; May 2017</span>
+                <span class="timeline-industry">HR Tech</span>
+              </div>
+              <p class="timeline-desc">Built recruitment automation tools and a Chrome extension for candidate sourcing across job platforms.</p>
+            </div>
+          </div>
+
+          <div class="timeline-entry" data-stagger="4">
+            <div class="timeline-dot" aria-hidden="true"></div>
+            <div class="timeline-card">
+              <div class="timeline-header">
+                <div class="timeline-logo" aria-hidden="true">U</div>
+                <div>
+                  <div class="timeline-company">Uttara Info Solutions</div>
+                  <div class="timeline-role">Software Engineer</div>
+                </div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-duration">Feb 2015 &ndash; Jul 2016</span>
+                <span class="timeline-industry">Software Services</span>
+              </div>
+              <p class="timeline-desc">Developed enterprise Java applications and gained foundational experience in backend systems and database design.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
 
     <!-- About -->
     <section aria-labelledby="about-heading">
       <div class="section-inner">
         <p class="section-label reveal" id="about-heading" role="heading" aria-level="2">About</p>
         <div class="about-text">
-          <p class="reveal">I'm a Staff Engineer with over <span class="about-highlight">10 years of experience</span> building scalable backend systems and production-grade distributed architectures. I specialize in crafting reliable microservices with a strong emphasis on clean code, performance, and maintainability. In my career, I've taken ownership of <span class="about-highlight">20+ services</span> — from ideation to deployments.</p>
-          <p class="reveal">I enjoy working at the intersection of <span class="about-highlight">engineering depth and business value</span> — leading teams, mentoring developers, and driving platform evolution with a focus on clarity, resilience, and observability.</p>
-          <p class="reveal">Outside of work, I'm a quiet learner — diving into system design, exploring frameworks, and tinkering with tools that help me improve incrementally every day.</p>
+          <p class="reveal">Currently building <span class="about-highlight">blockchain infrastructure</span> at <span class="about-highlight">BitGo</span>, where I work on the staking platform — designing microservices that power institutional-grade digital asset operations. Before staking, I shipped onboarding and stablecoin services, each built for reliability at scale.</p>
+          <p class="reveal">Over <span class="about-highlight">11+ years</span>, I've built <span class="about-highlight">25+ microservices</span> across <span class="about-highlight">4 industries</span> — blockchain, edtech, fintech, and HR tech. The common thread: taking core <span class="about-highlight">platform engineering</span> problems from zero to production. At Embibe, I owned auth, payments, campaigns, and notifications for a platform serving millions. At Reward360, I led loyalty systems for Standard Chartered and Axis Bank.</p>
+          <p class="reveal">Outside of work, I'm a quiet learner — diving into <span class="about-highlight">system design</span>, exploring distributed architectures, and mentoring engineers to think in systems rather than features.</p>
         </div>
       </div>
     </section>
@@ -1084,31 +1457,118 @@
             <div class="card-spotlight"></div>
             <h3>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-              Languages &amp; Tools
+              Languages &amp; Frameworks
             </h3>
             <ul class="tag-list" role="list">
               <li class="tag reveal">Java</li>
+              <li class="tag reveal">TypeScript</li>
               <li class="tag reveal">Spring Boot</li>
               <li class="tag reveal">Vert.x</li>
-              <li class="tag reveal">PostgreSQL</li>
-              <li class="tag reveal">MongoDB</li>
-              <li class="tag reveal">Redis</li>
-              <li class="tag reveal">RabbitMQ</li>
-              <li class="tag reveal">Kafka</li>
+              <li class="tag reveal">Node.js</li>
+              <li class="tag reveal">Dropwizard</li>
+              <li class="tag reveal">Hibernate</li>
+              <li class="tag reveal">Python</li>
+              <li class="tag reveal">JavaScript</li>
+              <li class="tag reveal">Groovy</li>
             </ul>
           </div>
           <div class="expertise-card reveal" data-tilt>
             <div class="card-spotlight"></div>
             <h3>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-              Domains
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+              Data &amp; Messaging
             </h3>
             <ul class="tag-list" role="list">
-              <li class="tag reveal">Microservices</li>
-              <li class="tag reveal">Platform Engineering</li>
-              <li class="tag reveal">Scalable APIs</li>
-              <li class="tag reveal">Campaign Systems</li>
+              <li class="tag reveal">PostgreSQL</li>
+              <li class="tag reveal">MongoDB</li>
+              <li class="tag reveal">Redis</li>
+              <li class="tag reveal">Kafka</li>
+              <li class="tag reveal">RabbitMQ</li>
+              <li class="tag reveal">Oracle</li>
+              <li class="tag reveal">Couchbase</li>
             </ul>
+          </div>
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              Cloud &amp; DevOps
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">Docker</li>
+              <li class="tag reveal">Kubernetes</li>
+              <li class="tag reveal">Azure</li>
+              <li class="tag reveal">Cloudflare</li>
+              <li class="tag reveal">Jenkins</li>
+            </ul>
+          </div>
+          <div class="expertise-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <h3>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg>
+              Observability &amp; Practices
+            </h3>
+            <ul class="tag-list" role="list">
+              <li class="tag reveal">NewRelic</li>
+              <li class="tag reveal">Loggly</li>
+              <li class="tag reveal">PagerDuty</li>
+              <li class="tag reveal">OAuth2/JWT</li>
+              <li class="tag reveal">Distributed Systems</li>
+              <li class="tag reveal">CI/CD</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Industries -->
+    <section aria-labelledby="industries-heading">
+      <div class="section-inner">
+        <p class="section-label reveal" id="industries-heading" role="heading" aria-level="2">Industries</p>
+        <div class="industries-grid">
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/><path d="M7 15h4"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">Blockchain &amp; Digital Assets</div>
+              <div class="industry-company">BitGo</div>
+              <div class="industry-contribution">Staking platform microservices for institutional digital asset custody</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">EdTech</div>
+              <div class="industry-company">Embibe</div>
+              <div class="industry-contribution">22+ platform services &mdash; auth, payments, campaigns, notifications</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">FinTech &amp; Loyalty</div>
+              <div class="industry-company">Reward360</div>
+              <div class="industry-contribution">Rewards platform for Standard Chartered Bank &amp; Axis Bank</div>
+            </div>
+          </div>
+          <div class="industry-card reveal" data-tilt>
+            <div class="card-spotlight"></div>
+            <div class="industry-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="industry-info">
+              <div class="industry-name">HR Tech</div>
+              <div class="industry-company">HireWand</div>
+              <div class="industry-contribution">Recruitment automation &amp; Chrome extension for candidate sourcing</div>
+            </div>
           </div>
         </div>
       </div>
@@ -1119,11 +1579,15 @@
       <div class="section-inner">
         <p class="section-label reveal" id="connect-heading" role="heading" aria-level="2">Connect</p>
         <p class="connect-heading reveal">Let's build something great.</p>
-        <p class="connect-sub reveal">Open to conversations about engineering, architecture, and platform challenges.</p>
+        <p class="connect-sub reveal">Open to conversations about blockchain infrastructure, platform engineering, and system design.</p>
         <div class="connect-buttons reveal">
           <a href="https://www.linkedin.com/in/doddanna/" target="_blank" rel="noopener noreferrer" class="btn btn-primary magnetic" aria-label="Connect on LinkedIn">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn
+          </a>
+          <a href="https://github.com/Doddanna17" target="_blank" rel="noopener noreferrer" class="btn btn-secondary magnetic" aria-label="View GitHub profile">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            GitHub
           </a>
           <a href="mailto:doddannab17@gmail.com" class="btn btn-secondary magnetic" aria-label="Send an email">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,7 12,13 2,7"/></svg>
@@ -1493,6 +1957,47 @@
       }, { threshold: 0.5 });
       hlObs.observe(span);
     });
+
+    /* ══════════════════════════════════════════════════
+       JOURNEY TIMELINE ANIMATION
+    ══════════════════════════════════════════════════ */
+    var timelineEntries = document.querySelectorAll('.timeline-entry');
+    var timelineProgress = document.querySelector('.timeline-progress');
+    var timelineLine = document.querySelector('.timeline-line');
+
+    if (timelineEntries.length > 0 && !reduced) {
+      var tlObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var stagger = parseInt(entry.target.getAttribute('data-stagger') || '0');
+            setTimeout(function() {
+              entry.target.classList.add('visible');
+            }, stagger * 150);
+            tlObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      timelineEntries.forEach(function(entry) { tlObserver.observe(entry); });
+
+      /* Animate the progress line based on scroll position within the timeline */
+      if (timelineProgress && timelineLine) {
+        var timelineSection = timelineLine.closest('.journey-timeline');
+        window.addEventListener('scroll', function() {
+          if (!timelineSection) return;
+          var rect = timelineSection.getBoundingClientRect();
+          var sectionTop = rect.top;
+          var sectionHeight = rect.height;
+          var windowHeight = window.innerHeight;
+          var scrolledInto = windowHeight - sectionTop;
+          var progress = Math.max(0, Math.min(1, scrolledInto / (sectionHeight + windowHeight * 0.3)));
+          timelineProgress.style.height = (progress * 100) + '%';
+        }, { passive: true });
+      }
+    } else if (reduced) {
+      timelineEntries.forEach(function(entry) { entry.classList.add('visible'); });
+      if (timelineProgress) timelineProgress.style.height = '100%';
+    }
 
     /* ══════════════════════════════════════════════════
        KONAMI CODE EASTER EGG
