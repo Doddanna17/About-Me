@@ -13,9 +13,9 @@
   <meta property="og:description" content="Staff Engineer with 11+ years building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.doddanna.com">
-  <meta property="og:image" content="https://www.doddanna.com/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
+  <meta property="og:image" content="https://github.com/Doddanna17.png?size=460">
+  <meta property="og:image:width" content="460">
+  <meta property="og:image:height" content="460">
   <meta property="og:image:alt" content="Doddanna B — Staff Engineer, Platform Architect, Blockchain Infrastructure">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="Doddanna B">
@@ -24,13 +24,12 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Doddanna B — Staff Engineer · Platform Architect · Blockchain">
   <meta name="twitter:description" content="Staff Engineer with 11+ years building blockchain infrastructure, platform services, and distributed systems across 4 industries.">
-  <meta name="twitter:image" content="https://www.doddanna.com/og-image.png">
+  <meta name="twitter:image" content="https://github.com/Doddanna17.png?size=460">
   <meta name="twitter:image:alt" content="Doddanna B — Staff Engineer, Platform Architect, Blockchain Infrastructure">
 
   <link rel="canonical" href="https://www.doddanna.com">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="https://github.com/Doddanna17.png?size=32">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://github.com/Doddanna17.png?size=180">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -193,6 +192,24 @@
       border-color: var(--accent-light);
     }
 
+    .cursor-trail {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      pointer-events: none;
+      z-index: 99998;
+      opacity: 0.5;
+      transform: translate(-50%, -50%);
+      animation: trailFade 0.6s ease-out forwards;
+    }
+
+    @keyframes trailFade {
+      0% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      100% { opacity: 0; transform: translate(-50%, -50%) scale(0.2); }
+    }
+
     /* Hide custom cursor on touch devices */
     @media (hover: none) {
       body { cursor: auto; }
@@ -253,14 +270,34 @@
       background: var(--bg);
       z-index: 100001;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 24px;
       transition: opacity 0.6s ease, visibility 0.6s ease;
     }
 
     .page-loader.done {
       opacity: 0;
       visibility: hidden;
+    }
+
+    .loader-name {
+      font-family: var(--font-body);
+      font-size: clamp(1.4rem, 4vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+
+    .loader-name.show { opacity: 1; transform: translateY(0); }
+
+    .loader-name .loader-char {
+      display: inline-block;
+      transition: color 0.15s;
     }
 
     .loader-bar {
@@ -270,19 +307,26 @@
       border-radius: 2px;
       overflow: hidden;
       position: relative;
+      transition: width 0.6s var(--ease-out-expo);
     }
+
+    .loader-bar.expand { width: 120px; }
 
     .loader-bar::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background: var(--accent);
-      animation: loaderSlide 0.8s ease-in-out;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      border-radius: 2px;
+      animation: loaderFill 1.4s var(--ease-out-quart) forwards;
     }
 
-    @keyframes loaderSlide {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(0); }
+    @keyframes loaderFill {
+      0% { width: 0%; }
+      100% { width: 100%; }
     }
 
     /* ── Sections ── */
@@ -593,9 +637,31 @@
       line-height: 1;
       letter-spacing: -0.04em;
       font-variant-numeric: tabular-nums;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .stat-number .accent { color: var(--accent); }
+
+    .digit-col {
+      display: inline-block;
+      height: 1.1em;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .digit-strip {
+      display: flex;
+      flex-direction: column;
+      transition: transform 1.4s var(--ease-out-expo);
+    }
+
+    .digit-strip span {
+      display: block;
+      height: 1.1em;
+      line-height: 1.1em;
+    }
 
     .stat-label {
       font-size: 0.72rem;
@@ -623,6 +689,18 @@
     }
 
     .about-text p + p { margin-top: 28px; }
+
+    .about-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .about-word.word-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .about-highlight {
       color: var(--text);
@@ -669,6 +747,19 @@
       transform-style: preserve-3d;
       transition: transform 0.5s var(--ease-out-quart), border-color 0.3s, box-shadow 0.3s;
       will-change: transform;
+    }
+
+    /* Card entrance with rotation */
+    .expertise-card.reveal {
+      opacity: 0;
+      transform: perspective(800px) rotateY(8deg) translateY(40px);
+    }
+    .expertise-card.reveal:nth-child(even) {
+      transform: perspective(800px) rotateY(-8deg) translateY(40px);
+    }
+    .expertise-card.reveal.visible {
+      opacity: 1;
+      transform: perspective(800px) rotateY(0) translateY(0);
     }
 
     /* Spotlight that follows cursor inside card */
@@ -1083,6 +1174,19 @@
       will-change: transform;
     }
 
+    /* Industry card entrance - slide from sides */
+    .industry-card.reveal {
+      opacity: 0;
+      transform: translateX(-30px) rotateY(6deg);
+    }
+    .industry-card.reveal:nth-child(even) {
+      transform: translateX(30px) rotateY(-6deg);
+    }
+    .industry-card.reveal.visible {
+      opacity: 1;
+      transform: translateX(0) rotateY(0);
+    }
+
     .industry-card:hover {
       border-color: var(--border-hover);
       box-shadow: 0 16px 48px -12px rgba(0, 0, 0, 0.4);
@@ -1106,6 +1210,23 @@
       width: 22px;
       height: 22px;
       color: var(--accent);
+    }
+
+    /* SVG draw animation */
+    .industry-icon svg path,
+    .industry-icon svg line,
+    .industry-icon svg rect,
+    .industry-icon svg circle {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 1s var(--ease-out-expo);
+    }
+
+    .industry-card.visible .industry-icon svg path,
+    .industry-card.visible .industry-icon svg line,
+    .industry-card.visible .industry-icon svg rect,
+    .industry-card.visible .industry-icon svg circle {
+      stroke-dashoffset: 0;
     }
 
     .industry-info { flex: 1; min-width: 0; }
@@ -1282,11 +1403,15 @@
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
       }
-      .reveal, .hero-name, .hero-title, .hero-location, .hero-cta, .timeline-entry { opacity: 1; transform: none; }
-      .cursor, .cursor-glow { display: none; }
+      .reveal, .hero-name, .hero-title, .hero-location, .hero-cta, .timeline-entry,
+      .about-word, .expertise-card.reveal, .industry-card.reveal { opacity: 1; transform: none; }
+      .about-word { opacity: 1; transform: none; }
+      .cursor, .cursor-glow, .cursor-trail { display: none; }
       body { cursor: auto; }
       .page-loader { display: none; }
       .blob { animation: none !important; }
+      .industry-icon svg path, .industry-icon svg line,
+      .industry-icon svg rect, .industry-icon svg circle { stroke-dashoffset: 0; }
     }
 
     /* ══════════════════════════════════════════════════
@@ -1316,6 +1441,7 @@
 
   <!-- Page Loader -->
   <div class="page-loader" aria-hidden="true">
+    <div class="loader-name"></div>
     <div class="loader-bar"></div>
   </div>
 
@@ -1377,19 +1503,19 @@
     <!-- Stats -->
     <div class="stats-strip" aria-label="Key achievements">
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="11">0</span><span class="accent">+</span></div>
+        <div class="stat-number" data-flip="11"><span class="accent">+</span></div>
         <div class="stat-label">Years Experience</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="25">0</span><span class="accent">+</span></div>
+        <div class="stat-number" data-flip="25"><span class="accent">+</span></div>
         <div class="stat-label">Microservices Built</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-number"><span data-count="4">0</span></div>
+        <div class="stat-number" data-flip="4"></div>
         <div class="stat-label">Industries</div>
       </div>
       <div class="stat reveal">
-        <div class="stat-number"><span class="accent">&lt;</span><span data-count="100">0</span><span class="stat-unit">ms</span></div>
+        <div class="stat-number"><span class="accent">&lt;</span><span data-flip-single="100"></span><span class="stat-unit">ms</span></div>
         <div class="stat-label">Latency Target</div>
       </div>
     </div>
@@ -1719,21 +1845,66 @@
     document.getElementById('year').textContent = new Date().getFullYear();
 
     /* ══════════════════════════════════════════════════
-       PAGE LOADER
+       PAGE LOADER — Creative sequence
     ══════════════════════════════════════════════════ */
+    var glyphChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
     var loader = document.querySelector('.page-loader');
+    var loaderNameEl = document.querySelector('.loader-name');
+    var loaderBar = document.querySelector('.loader-bar');
+
+    /* Phase 1: Scramble name in loader */
+    (function initLoaderName() {
+      var text = 'Doddanna B';
+      for (var i = 0; i < text.length; i++) {
+        var span = document.createElement('span');
+        span.className = 'loader-char';
+        span.textContent = text[i] === ' ' ? '\u00a0' : glyphChars[Math.floor(Math.random() * glyphChars.length)];
+        span.setAttribute('data-final', text[i]);
+        span.setAttribute('data-idx', i);
+        loaderNameEl.appendChild(span);
+      }
+      /* Show name after brief pause */
+      setTimeout(function() {
+        loaderNameEl.classList.add('show');
+        loaderBar.classList.add('expand');
+      }, 100);
+
+      /* Scramble-resolve each char */
+      var loaderChars = loaderNameEl.querySelectorAll('.loader-char');
+      loaderChars.forEach(function(ch) {
+        var idx = parseInt(ch.getAttribute('data-idx'));
+        var finalCh = ch.getAttribute('data-final');
+        if (finalCh === ' ') return;
+        var scrambles = 0;
+        var max = 5 + Math.floor(Math.random() * 5);
+        setTimeout(function() {
+          var iv = setInterval(function() {
+            if (scrambles >= max) {
+              ch.textContent = finalCh;
+              ch.style.color = 'var(--accent-light)';
+              setTimeout(function() { ch.style.color = ''; }, 300);
+              clearInterval(iv);
+              return;
+            }
+            ch.textContent = glyphChars[Math.floor(Math.random() * glyphChars.length)];
+            scrambles++;
+          }, 50);
+        }, 200 + idx * 70);
+      });
+    })();
+
+    /* Phase 2: Transition to hero */
     window.addEventListener('load', function() {
       setTimeout(function() {
         loader.classList.add('done');
         document.querySelector('.hero').classList.add('loaded');
         initNameChars();
-      }, 600);
+      }, 1600);
     });
 
     /* ══════════════════════════════════════════════════
        TEXT SCRAMBLE ON HERO NAME
     ══════════════════════════════════════════════════ */
-    var glyphChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*';
     var heroNameEl = document.querySelector('.hero-name');
     var nameText = 'Doddanna B';
 
@@ -1746,34 +1917,10 @@
           span.innerHTML = '&nbsp;';
         } else {
           span.className = 'char';
-          span.textContent = glyphChars[Math.floor(Math.random() * glyphChars.length)];
-          span.setAttribute('data-final', nameText[i]);
-          span.setAttribute('data-index', i);
+          span.textContent = nameText[i];
         }
         heroNameEl.appendChild(span);
       }
-
-      /* Scramble-reveal each character with staggered timing */
-      var chars = heroNameEl.querySelectorAll('.char[data-final]');
-      chars.forEach(function(ch) {
-        var idx = parseInt(ch.getAttribute('data-index'));
-        var finalChar = ch.getAttribute('data-final');
-        var startDelay = 400 + idx * 60;
-        var scrambleCount = 0;
-        var maxScrambles = 4 + Math.floor(Math.random() * 4);
-
-        setTimeout(function() {
-          var interval = setInterval(function() {
-            if (scrambleCount >= maxScrambles) {
-              ch.textContent = finalChar;
-              clearInterval(interval);
-              return;
-            }
-            ch.textContent = glyphChars[Math.floor(Math.random() * glyphChars.length)];
-            scrambleCount++;
-          }, 50);
-        }, startDelay);
-      });
     }
 
     /* ══════════════════════════════════════════════════
@@ -1810,6 +1957,28 @@
       interactives.forEach(function(el) {
         el.addEventListener('mouseenter', function() { cursor.classList.add('hovering'); });
         el.addEventListener('mouseleave', function() { cursor.classList.remove('hovering'); });
+      });
+
+      /* ── Cursor Trail ── */
+      var prevTrailX = 0, prevTrailY = 0;
+      var trailThrottle = 0;
+      document.addEventListener('mousemove', function(e) {
+        var now = Date.now();
+        if (now - trailThrottle < 30) return;
+        var dx = e.clientX - prevTrailX;
+        var dy = e.clientY - prevTrailY;
+        var speed = Math.sqrt(dx * dx + dy * dy);
+        if (speed > 40) {
+          var dot = document.createElement('div');
+          dot.className = 'cursor-trail';
+          dot.style.left = e.clientX + 'px';
+          dot.style.top = e.clientY + 'px';
+          document.body.appendChild(dot);
+          dot.addEventListener('animationend', function() { dot.remove(); });
+          trailThrottle = now;
+        }
+        prevTrailX = e.clientX;
+        prevTrailY = e.clientY;
       });
     }
 
@@ -1938,35 +2107,79 @@
     });
 
     /* ══════════════════════════════════════════════════
-       ANIMATED COUNTERS
+       SLOT-MACHINE DIGIT FLIP COUNTERS
     ══════════════════════════════════════════════════ */
-    var counters = document.querySelectorAll('[data-count]');
-    var countObserver = new IntersectionObserver(function(entries) {
+    function buildFlipDigits(container, targetNum) {
+      var digits = String(targetNum).split('');
+      var cols = [];
+      for (var d = 0; d < digits.length; d++) {
+        var col = document.createElement('span');
+        col.className = 'digit-col';
+        var strip = document.createElement('span');
+        strip.className = 'digit-strip';
+        var target = parseInt(digits[d]);
+        /* Build digit strip: 0 through target */
+        for (var n = 0; n <= target; n++) {
+          var s = document.createElement('span');
+          s.textContent = n;
+          strip.appendChild(s);
+        }
+        /* Start at top (showing 0) */
+        strip.style.transform = 'translateY(0)';
+        col.appendChild(strip);
+        cols.push({ el: col, strip: strip, target: target, digitIndex: d });
+      }
+      /* Insert digit columns before any suffix (like +) */
+      var firstChild = container.firstChild;
+      for (var c = cols.length - 1; c >= 0; c--) {
+        container.insertBefore(cols[c].el, firstChild);
+      }
+      return cols;
+    }
+
+    /* Initialize flip containers */
+    var flipEls = document.querySelectorAll('[data-flip]');
+    var flipData = [];
+    flipEls.forEach(function(el) {
+      var num = el.getAttribute('data-flip');
+      var cols = buildFlipDigits(el, num);
+      flipData.push({ el: el, cols: cols });
+    });
+
+    /* data-flip-single: same but inside a span element */
+    var flipSingles = document.querySelectorAll('[data-flip-single]');
+    flipSingles.forEach(function(el) {
+      var num = el.getAttribute('data-flip-single');
+      var cols = buildFlipDigits(el, num);
+      flipData.push({ el: el, cols: cols });
+    });
+
+    /* Trigger flip on scroll intersection */
+    var flipObserver = new IntersectionObserver(function(entries) {
       entries.forEach(function(entry) {
         if (entry.isIntersecting) {
-          var el = entry.target;
-          var target = parseInt(el.getAttribute('data-count'));
-          var duration = 1600;
-          var start = performance.now();
-
-          function easeOutExpo(t) {
-            return t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
+          var match = flipData.find(function(f) { return f.el === entry.target || f.el.closest('.stat') === entry.target; });
+          if (!match) {
+            /* Find by checking stat parent */
+            flipData.forEach(function(f) {
+              if (entry.target.querySelector('[data-flip]') === f.el || entry.target.querySelector('[data-flip-single]') === f.el) {
+                match = f;
+              }
+            });
           }
-
-          (function tick(now) {
-            var elapsed = now - start;
-            var progress = Math.min(elapsed / duration, 1);
-            var easedProgress = easeOutExpo(progress);
-            el.textContent = Math.round(target * easedProgress);
-            if (progress < 1) requestAnimationFrame(tick);
-          })(start);
-
-          countObserver.unobserve(el);
+          if (match) {
+            match.cols.forEach(function(col, i) {
+              setTimeout(function() {
+                col.strip.style.transform = 'translateY(-' + (col.target * 1.1) + 'em)';
+              }, i * 120);
+            });
+          }
+          flipObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
 
-    counters.forEach(function(c) { countObserver.observe(c); });
+    document.querySelectorAll('.stat').forEach(function(s) { flipObserver.observe(s); });
 
     /* ══════════════════════════════════════════════════
        SCROLL REVEAL
@@ -1994,6 +2207,24 @@
               }
             }
 
+            /* Staggered entrance for expertise cards */
+            if (el.classList.contains('expertise-card')) {
+              var grid = el.closest('.expertise-grid');
+              if (grid) {
+                var cards = Array.prototype.slice.call(grid.querySelectorAll('.expertise-card'));
+                el.style.transitionDelay = (cards.indexOf(el) * 120) + 'ms';
+              }
+            }
+
+            /* Staggered entrance for industry cards */
+            if (el.classList.contains('industry-card')) {
+              var igrid = el.closest('.industries-grid');
+              if (igrid) {
+                var icards = Array.prototype.slice.call(igrid.querySelectorAll('.industry-card'));
+                el.style.transitionDelay = (icards.indexOf(el) * 120) + 'ms';
+              }
+            }
+
             el.classList.add('visible');
             revealObs.unobserve(el);
           }
@@ -2003,6 +2234,56 @@
       reveals.forEach(function(el) { revealObs.observe(el); });
     } else {
       document.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('visible'); });
+    }
+
+    /* ══════════════════════════════════════════════════
+       ABOUT SPLIT-TEXT WORD REVEAL
+    ══════════════════════════════════════════════════ */
+    if (!reduced) {
+      document.querySelectorAll('.about-text p.reveal').forEach(function(p) {
+        /* Walk child nodes, wrap text nodes in word spans while preserving highlight spans */
+        var frag = document.createDocumentFragment();
+        var wordIdx = 0;
+        Array.prototype.slice.call(p.childNodes).forEach(function(node) {
+          if (node.nodeType === 3) {
+            /* Text node — split into words */
+            var words = node.textContent.split(/(\s+)/);
+            words.forEach(function(w) {
+              if (/^\s+$/.test(w)) {
+                frag.appendChild(document.createTextNode(w));
+              } else if (w) {
+                var span = document.createElement('span');
+                span.className = 'about-word';
+                span.textContent = w;
+                span.setAttribute('data-word-idx', wordIdx++);
+                frag.appendChild(span);
+              }
+            });
+          } else {
+            /* Highlight span — wrap in about-word for animation */
+            var wrap = document.createElement('span');
+            wrap.className = 'about-word';
+            wrap.setAttribute('data-word-idx', wordIdx++);
+            wrap.appendChild(node.cloneNode(true));
+            frag.appendChild(wrap);
+          }
+        });
+        p.innerHTML = '';
+        p.appendChild(frag);
+
+        /* Observe the paragraph and reveal words with stagger */
+        var pObs = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) {
+            var wordEls = p.querySelectorAll('.about-word');
+            wordEls.forEach(function(w) {
+              var idx = parseInt(w.getAttribute('data-word-idx'));
+              setTimeout(function() { w.classList.add('word-visible'); }, idx * 40);
+            });
+            pObs.unobserve(p);
+          }
+        }, { threshold: 0.15 });
+        pObs.observe(p);
+      });
     }
 
     /* ══════════════════════════════════════════════════
