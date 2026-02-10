@@ -137,8 +137,12 @@
       transition-property: background-color, border-color, color, box-shadow, fill, stroke;
     }
     html.theme-transitioning, html.theme-transitioning * {
-      transition-duration: 0.4s !important;
+      transition-duration: 0.4s;
       transition-timing-function: ease !important;
+    }
+    html.theme-transitioning.theme-sunrise-slow, html.theme-sunrise-slow * {
+      transition-duration: 1.6s;
+      transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1) !important;
     }
 
     body {
@@ -1434,6 +1438,702 @@
     @media (min-width: 1024px) {
       .stats-strip { gap: 72px; }
     }
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Toast Notifications
+    ══════════════════════════════════════════════════ */
+    .gam-toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100003;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      pointer-events: none;
+    }
+
+    .gam-toast {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px 20px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: var(--text);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+      transform: translateX(120%);
+      transition: transform 0.4s var(--ease-out-expo), opacity 0.3s;
+      pointer-events: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 320px;
+    }
+
+    .gam-toast.show { transform: translateX(0); }
+    .gam-toast.hide { opacity: 0; transform: translateX(120%); }
+    .gam-toast-icon { font-size: 1.2rem; flex-shrink: 0; }
+    .gam-toast-text { line-height: 1.4; }
+    .gam-toast-title { font-weight: 700; color: var(--accent-light); }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Progress Pill
+    ══════════════════════════════════════════════════ */
+    .gam-pill {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99995;
+    }
+
+    .gam-pill-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 8px 16px 8px 10px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s var(--ease-spring);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .gam-pill-btn:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px var(--accent-glow);
+      transform: scale(1.05);
+    }
+
+    .gam-pill-ring { width: 28px; height: 28px; flex-shrink: 0; }
+    .gam-ring-bg { stroke: var(--border); }
+    .gam-ring-progress {
+      stroke: var(--accent);
+      transition: stroke-dashoffset 0.6s var(--ease-out-expo);
+    }
+
+    .gam-pill-stats { display: flex; gap: 10px; align-items: center; }
+    .gam-pill-sep { width: 1px; height: 14px; background: var(--border); }
+
+    @media (hover: none) { .gam-pill-btn { cursor: pointer; } }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Achievement Panel
+    ══════════════════════════════════════════════════ */
+    .gam-panel {
+      position: fixed;
+      bottom: 76px;
+      right: 24px;
+      z-index: 99994;
+      width: 300px;
+      max-height: 420px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+      overflow: hidden;
+      transform: translateY(12px) scale(0.95);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s var(--ease-out-expo), opacity 0.3s, visibility 0.3s;
+    }
+
+    .gam-panel.open {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .gam-panel-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gam-panel-list {
+      padding: 8px 12px;
+      overflow-y: auto;
+      max-height: 360px;
+      list-style: none;
+    }
+
+    .gam-achiev-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 8px;
+      border-radius: 10px;
+      transition: background 0.2s;
+    }
+
+    .gam-achiev-item:hover { background: var(--surface); }
+
+    .gam-achiev-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      border: 1px solid var(--border);
+    }
+
+    .gam-achiev-item.unlocked .gam-achiev-icon {
+      background: rgba(124, 92, 252, 0.1);
+      border-color: var(--accent);
+    }
+
+    .gam-achiev-name { font-size: 0.78rem; font-weight: 600; color: var(--text); }
+    .gam-achiev-desc { font-size: 0.7rem; color: var(--text-muted); margin-top: 1px; }
+    .gam-achiev-item:not(.unlocked) .gam-achiev-name { color: var(--text-muted); }
+    .gam-achiev-item:not(.unlocked) .gam-achiev-icon { opacity: 0.4; }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Tech Tooltips
+    ══════════════════════════════════════════════════ */
+    .tech-tooltip {
+      position: fixed;
+      z-index: 99993;
+      width: 280px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 16px 20px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.25s, transform 0.25s var(--ease-out-expo), visibility 0.25s;
+      pointer-events: none;
+    }
+
+    .tech-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .tech-tooltip-arrow {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      transform: rotate(45deg);
+    }
+
+    .tech-tooltip.above .tech-tooltip-arrow {
+      bottom: -7px;
+      border-top: none;
+      border-left: none;
+    }
+
+    .tech-tooltip.below .tech-tooltip-arrow {
+      top: -7px;
+      border-bottom: none;
+      border-right: none;
+    }
+
+    .tech-tooltip-name { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .tech-tooltip-meta { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent-light); margin-bottom: 8px; }
+    .tech-tooltip-context { font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 10px; }
+
+    .tech-tooltip-bar-track {
+      height: 4px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .tech-tooltip-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--teal));
+      border-radius: 2px;
+      transition: width 0.6s var(--ease-out-expo);
+      width: 0%;
+    }
+
+    .tech-tooltip-bar-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+      text-align: right;
+    }
+
+    .tag.tag-active {
+      color: #fff;
+      border-color: var(--accent);
+      background: rgba(124, 92, 252, 0.12);
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 6px 20px rgba(124, 92, 252, 0.2);
+    }
+
+    [data-theme="light"] .tag.tag-active {
+      color: var(--accent);
+      border-color: var(--accent);
+      background: rgba(99, 68, 212, 0.08);
+      box-shadow: 0 6px 20px rgba(99, 68, 212, 0.12);
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Theme Effects
+    ══════════════════════════════════════════════════ */
+    /* Stars — dark mode */
+    .theme-star {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99990;
+      animation: starTwinkle ease-in-out forwards;
+    }
+
+    .theme-star--pulse {
+      box-shadow: 0 0 6px 2px currentColor;
+      animation: starPulse ease-in-out forwards;
+    }
+
+    @keyframes starTwinkle {
+      0%   { opacity: 0; transform: scale(0) rotate(0deg); }
+      30%  { opacity: 1; transform: scale(1.8) rotate(90deg); }
+      60%  { opacity: 0.8; transform: scale(0.6) rotate(180deg); }
+      80%  { opacity: 1; transform: scale(1.2) rotate(270deg); }
+      100% { opacity: 0; transform: scale(0) rotate(360deg); }
+    }
+
+    @keyframes starPulse {
+      0%   { opacity: 0; transform: scale(0); }
+      20%  { opacity: 1; transform: scale(2.5); }
+      50%  { opacity: 0.6; transform: scale(1); }
+      70%  { opacity: 1; transform: scale(1.8); }
+      100% { opacity: 0; transform: scale(0); }
+    }
+
+    /* Shooting star — dark mode */
+    .theme-shooting-star {
+      position: fixed;
+      width: 2px;
+      height: 2px;
+      background: #fff;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99990;
+      box-shadow: 0 0 4px 1px rgba(255,255,255,0.6);
+    }
+
+    .theme-shooting-star::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 100%;
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to left, rgba(255,255,255,0.6), transparent);
+    }
+
+    /* Nebula glow — dark mode */
+    .theme-nebula {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99989;
+      filter: blur(60px);
+      animation: nebulaFade 1.8s ease-out forwards;
+    }
+
+    @keyframes nebulaFade {
+      0%   { opacity: 0; transform: scale(0.3); }
+      40%  { opacity: 0.5; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.3); }
+    }
+
+    /* ── Toggle Sun Glow ── */
+    .theme-toggle.sun-charging {
+      border-color: rgba(255,180,60,0.5) !important;
+      box-shadow: 0 0 0 3px rgba(255,180,60,0.15), 0 0 15px rgba(255,160,40,0.25) !important;
+      transition: box-shadow 0.5s ease, border-color 0.3s !important;
+    }
+
+    .theme-toggle.sun-peak {
+      border-color: rgba(255,200,80,0.7) !important;
+      box-shadow: 0 0 0 6px rgba(255,200,80,0.12),
+                  0 0 30px rgba(255,180,60,0.35),
+                  0 0 80px rgba(255,140,30,0.18),
+                  0 0 160px rgba(255,120,20,0.06) !important;
+      transition: box-shadow 0.8s ease, border-color 0.4s !important;
+    }
+
+    .theme-toggle.sun-fade {
+      transition: box-shadow 1.5s ease-out, border-color 1s ease-out !important;
+    }
+
+    /* ── Sky Gradient — sweeps top-to-bottom like real dawn ── */
+    .theme-sky {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 99990;
+      animation: skyDawn 3.5s ease-in-out forwards;
+    }
+
+    @keyframes skyDawn {
+      0%   { background: linear-gradient(180deg, rgba(180,100,30,0.08) 0%, transparent 20%); }
+      15%  { background: linear-gradient(180deg, rgba(220,140,40,0.12) 0%, rgba(200,120,40,0.06) 30%, transparent 50%); }
+      30%  { background: linear-gradient(180deg, rgba(255,180,60,0.14) 0%, rgba(255,160,50,0.08) 35%, rgba(255,140,40,0.03) 55%, transparent 70%); }
+      50%  { background: linear-gradient(180deg, rgba(255,210,100,0.10) 0%, rgba(255,200,80,0.06) 40%, rgba(255,180,60,0.02) 60%, transparent 80%); }
+      70%  { background: linear-gradient(180deg, rgba(255,230,150,0.06) 0%, rgba(255,220,120,0.03) 40%, transparent 65%); }
+      85%  { background: linear-gradient(180deg, rgba(255,240,200,0.03) 0%, transparent 40%); }
+      100% { background: transparent; }
+    }
+
+    /* ── Sunrise Radial — soft glow from sun position ── */
+    .theme-sunrise {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99990;
+      background: radial-gradient(circle,
+        rgba(255,190,70,0.16) 0%,
+        rgba(255,170,50,0.08) 30%,
+        rgba(255,150,40,0.03) 50%,
+        transparent 70%);
+      animation: sunriseSweep 3.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes sunriseSweep {
+      0%   { transform: scale(0); opacity: 0; }
+      10%  { opacity: 0.5; }
+      25%  { transform: scale(1); opacity: 0.7; }
+      50%  { transform: scale(2.5); opacity: 0.4; }
+      75%  { transform: scale(4); opacity: 0.15; }
+      100% { transform: scale(6); opacity: 0; }
+    }
+
+    /* ── Light rays — long, soft, from sun position ── */
+    .theme-ray {
+      position: fixed;
+      pointer-events: none;
+      z-index: 99990;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(255,200,80,0.2), rgba(255,180,60,0.06), transparent);
+      transform-origin: top center;
+      animation: rayShoot 3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes rayShoot {
+      0%   { opacity: 0; height: 0; }
+      15%  { opacity: 0.4; height: 15vh; }
+      40%  { opacity: 0.3; height: 40vh; }
+      70%  { opacity: 0.15; height: 55vh; }
+      100% { opacity: 0; height: 60vh; }
+    }
+
+    /* ── Warm particles — slow, drifting motes of light ── */
+    .theme-warm-particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 99990;
+      animation: warmFloat 3.2s ease-out forwards;
+    }
+
+    @keyframes warmFloat {
+      0%   { opacity: 0; transform: translate(0, 0) scale(0); }
+      15%  { opacity: 0.4; transform: scale(1); }
+      50%  { opacity: 0.25; transform: translate(calc(var(--dx) * 0.5), calc(var(--dy) * 0.5)) scale(0.8); }
+      100% { opacity: 0; transform: translate(var(--dx), var(--dy)) scale(0.1); }
+    }
+
+    /* ── Page elements "waking up" as sunrise reaches them ── */
+    .sunrise-touched {
+      transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.8s ease !important;
+      transform: translateY(-3px) !important;
+      box-shadow: 0 4px 24px rgba(255,180,60,0.08) !important;
+    }
+
+    .sunrise-touched.expertise-card,
+    .sunrise-touched.industry-card,
+    .sunrise-touched.timeline-card {
+      border-color: rgba(255,190,70,0.2) !important;
+    }
+
+    .sunrise-touched .tag {
+      border-color: rgba(255,180,60,0.18) !important;
+      transition: border-color 0.6s ease !important;
+    }
+
+    /* Settle back to normal */
+    .sunrise-settled {
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 1.2s ease,
+                  border-color 1.2s ease !important;
+      transform: translateY(0) !important;
+      box-shadow: none !important;
+    }
+
+    .sunrise-settled.expertise-card,
+    .sunrise-settled.industry-card,
+    .sunrise-settled.timeline-card {
+      border-color: var(--border) !important;
+    }
+
+    /* All-achievements celebration */
+    .gam-crown {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 4rem;
+      pointer-events: none;
+      z-index: 100003;
+      animation: crownReveal 2.5s var(--ease-out-expo) forwards;
+      filter: drop-shadow(0 0 30px rgba(255,200,50,0.6));
+    }
+
+    @keyframes crownReveal {
+      0%   { transform: translate(-50%, -50%) scale(0) rotate(-20deg); opacity: 0; }
+      20%  { transform: translate(-50%, -50%) scale(1.5) rotate(10deg); opacity: 1; }
+      40%  { transform: translate(-50%, -50%) scale(1) rotate(-5deg); opacity: 1; }
+      60%  { transform: translate(-50%, -50%) scale(1.2) rotate(3deg); opacity: 1; }
+      80%  { transform: translate(-50%, -50%) scale(1) rotate(0deg); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0) rotate(0deg); opacity: 0; }
+    }
+
+    .gam-complete-ring {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 200px;
+      height: 200px;
+      transform: translate(-50%, -50%) scale(0);
+      border: 3px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 100002;
+      animation: completeRingExpand 1.5s var(--ease-out-expo) forwards;
+    }
+
+    @keyframes completeRingExpand {
+      0%   { transform: translate(-50%, -50%) scale(0); opacity: 1; border-width: 3px; }
+      100% { transform: translate(-50%, -50%) scale(4); opacity: 0; border-width: 1px; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Matrix Rain
+    ══════════════════════════════════════════════════ */
+    .matrix-rain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100002;
+      overflow: hidden;
+    }
+
+    .matrix-col {
+      position: absolute;
+      top: -20px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: #00ff41;
+      writing-mode: vertical-rl;
+      text-orientation: upright;
+      animation: matrixFall linear forwards;
+      opacity: 0.9;
+    }
+
+    @keyframes matrixFall {
+      0% { transform: translateY(-100%); opacity: 0.9; }
+      90% { opacity: 0.7; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Terminal
+    ══════════════════════════════════════════════════ */
+    .terminal-trigger {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 99995;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s var(--ease-spring), box-shadow 0.3s, color 0.3s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .terminal-trigger:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: scale(1.08);
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    .terminal-trigger:active { transform: scale(0.95); }
+    .terminal-trigger svg { width: 20px; height: 20px; }
+    @media (hover: none) { .terminal-trigger { cursor: pointer; } }
+
+    .terminal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100000;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    .terminal-overlay.open { opacity: 1; visibility: visible; }
+    .terminal-overlay, .terminal-overlay * { cursor: auto; }
+
+    .terminal-window {
+      width: 90%;
+      max-width: 680px;
+      max-height: 80vh;
+      background: #1a1a2e;
+      border: 1px solid #2a2a44;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      transform: scale(0.95) translateY(20px);
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+
+    .terminal-overlay.open .terminal-window { transform: scale(1) translateY(0); }
+
+    .terminal-titlebar {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      background: #14142a;
+      gap: 8px;
+      user-select: none;
+    }
+
+    .terminal-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .terminal-dot-red { background: #ff5f56; }
+    .terminal-dot-yellow { background: #ffbd2e; }
+    .terminal-dot-green { background: #27c93f; }
+
+    .terminal-titlebar-text {
+      flex: 1;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: #666680;
+    }
+
+    .terminal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.7;
+      color: #c0c0d0;
+      min-height: 300px;
+      max-height: 60vh;
+    }
+
+    .terminal-body::-webkit-scrollbar { width: 6px; }
+    .terminal-body::-webkit-scrollbar-track { background: transparent; }
+    .terminal-body::-webkit-scrollbar-thumb { background: #2a2a44; border-radius: 3px; }
+
+    .terminal-line { white-space: pre-wrap; word-break: break-word; }
+    .terminal-line-prompt { color: #9b7fff; }
+    .terminal-line-cmd { color: #e0e0f0; }
+    .terminal-line-response { color: #a0a0b8; }
+    .terminal-line-accent { color: #2dd4a8; }
+    .terminal-line-heading { color: #e0e0f0; font-weight: 700; }
+    .terminal-line-dim { color: #555570; }
+
+    .terminal-input-row {
+      display: flex;
+      align-items: center;
+      padding: 12px 16px;
+      border-top: 1px solid #2a2a44;
+      background: #14142a;
+      gap: 8px;
+    }
+
+    .terminal-prompt {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #9b7fff;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .terminal-input {
+      flex: 1;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: #e0e0f0;
+      caret-color: #9b7fff;
+    }
+
+    .terminal-input::placeholder { color: #444460; }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Responsive
+    ══════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      .gam-pill { bottom: 16px; right: 16px; }
+      .gam-panel { right: 16px; bottom: 68px; width: calc(100vw - 32px); max-width: 320px; }
+      .gam-toast-container { top: 12px; right: 12px; left: 12px; }
+      .gam-toast { max-width: 100%; }
+      .terminal-trigger { bottom: 16px; left: 16px; }
+      .terminal-window { width: 95%; }
+      .tech-tooltip { width: 240px; }
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Reduced Motion
+    ══════════════════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+      .gam-toast { transition: none; transform: translateX(0); }
+      .gam-toast.hide { opacity: 0; }
+      .theme-star, .theme-star--pulse, .theme-shooting-star, .theme-nebula,
+      .theme-sunrise, .theme-sky, .theme-ray, .theme-warm-particle,
+      .sunrise-touched, .sunrise-settled,
+      .matrix-col, .gam-crown, .gam-complete-ring { animation: none !important; display: none; }
+      .tech-tooltip { transition: none; }
+      .gam-panel { transition: none; }
+      .terminal-window { transition: none; }
+      .terminal-overlay { transition: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -1790,6 +2490,66 @@
     <p>&copy; <span id="year"></span> Doddanna B &mdash; Built with <span class="heart">&hearts;</span></p>
   </footer>
 
+  <!-- ═══ GAMIFICATION ELEMENTS ═══ -->
+
+  <!-- Terminal Trigger -->
+  <button class="terminal-trigger" aria-label="Open command terminal" title="Terminal (`)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+  </button>
+
+  <!-- Terminal Overlay -->
+  <div class="terminal-overlay" role="dialog" aria-label="Command terminal" aria-hidden="true">
+    <div class="terminal-window">
+      <div class="terminal-titlebar">
+        <div class="terminal-dot terminal-dot-red"></div>
+        <div class="terminal-dot terminal-dot-yellow"></div>
+        <div class="terminal-dot terminal-dot-green"></div>
+        <span class="terminal-titlebar-text">doddanna@portfolio ~ %</span>
+      </div>
+      <div class="terminal-body" id="terminal-body"></div>
+      <div class="terminal-input-row">
+        <span class="terminal-prompt">$</span>
+        <input class="terminal-input" id="terminal-input" type="text" placeholder="Type a command..." autocomplete="off" spellcheck="false" aria-label="Terminal command input">
+      </div>
+    </div>
+  </div>
+
+  <!-- Exploration Progress Pill -->
+  <div class="gam-pill">
+    <button class="gam-pill-btn" aria-label="View exploration progress" title="Exploration progress">
+      <svg class="gam-pill-ring" viewBox="0 0 36 36" aria-hidden="true">
+        <circle class="gam-ring-bg" cx="18" cy="18" r="15.5" fill="none" stroke-width="3"/>
+        <circle class="gam-ring-progress" cx="18" cy="18" r="15.5" fill="none" stroke-width="3"
+          stroke-dasharray="97.4" stroke-dashoffset="97.4" stroke-linecap="round"
+          transform="rotate(-90 18 18)"/>
+      </svg>
+      <div class="gam-pill-stats">
+        <span id="gam-sections">0/8</span>
+        <div class="gam-pill-sep"></div>
+        <span id="gam-trophies">&#127942; 0/7</span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Achievement Panel -->
+  <div class="gam-panel" role="dialog" aria-label="Achievements" aria-hidden="true">
+    <div class="gam-panel-header">&#127942; Achievements</div>
+    <ul class="gam-panel-list" id="gam-panel-list"></ul>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="gam-toast-container" id="gam-toast-container" aria-live="polite"></div>
+
+  <!-- Tech Tooltip -->
+  <div class="tech-tooltip" id="tech-tooltip" role="tooltip" aria-hidden="true">
+    <div class="tech-tooltip-arrow" id="tech-tooltip-arrow"></div>
+    <div class="tech-tooltip-name" id="tech-tooltip-name"></div>
+    <div class="tech-tooltip-meta" id="tech-tooltip-meta"></div>
+    <div class="tech-tooltip-context" id="tech-tooltip-context"></div>
+    <div class="tech-tooltip-bar-track"><div class="tech-tooltip-bar-fill" id="tech-tooltip-bar"></div></div>
+    <div class="tech-tooltip-bar-label" id="tech-tooltip-bar-label"></div>
+  </div>
+
   <script>
   (function() {
     'use strict';
@@ -1797,6 +2557,69 @@
     var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var isTouch = window.matchMedia('(hover: none)').matches;
     var html = document.documentElement;
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — State & Data
+    ══════════════════════════════════════════════════ */
+    var GAM_SECTIONS_KEY = 'gam_sections';
+    var GAM_ACHIEVE_KEY = 'gam_achievements';
+    var GAM_FOOTER_KEY = 'gam_footer_rewarded';
+
+    function gamLoad(key, fallback) {
+      try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch(e) { return fallback; }
+    }
+    function gamSave(key, val) {
+      try { localStorage.setItem(key, JSON.stringify(val)); } catch(e) {}
+    }
+
+    var gamState = {
+      sections: gamLoad(GAM_SECTIONS_KEY, []),
+      achievements: gamLoad(GAM_ACHIEVE_KEY, []),
+      footerRewarded: gamLoad(GAM_FOOTER_KEY, false)
+    };
+
+    var TOTAL_SECTIONS = 8;
+    var achievementDefs = [
+      { id: 'first-scroll', name: 'First Scroll', desc: 'Scroll past the hero section', icon: '\uD83D\uDCDC' },
+      { id: 'full-explorer', name: 'Full Explorer', desc: 'Visit all 8 sections', icon: '\uD83D\uDDFA\uFE0F' },
+      { id: 'code-breaker', name: 'Code Breaker', desc: 'Enter the Konami code', icon: '\uD83C\uDFAE' },
+      { id: 'terminal-hacker', name: 'Terminal Hacker', desc: 'Use the command terminal', icon: '\uD83D\uDCBB' },
+      { id: 'night-owl', name: 'Night Owl', desc: 'Switch to dark theme', icon: '\uD83E\uDD89' },
+      { id: 'early-bird', name: 'Early Bird', desc: 'Switch to light theme', icon: '\uD83C\uDF05' },
+      { id: 'secret-agent', name: 'Secret Agent', desc: 'Find a hidden easter egg', icon: '\uD83D\uDD75\uFE0F' }
+    ];
+
+    var techData = {
+      'Java': { years: '11+', companies: 'BitGo, Embibe, Reward360, HireWand, Uttara', context: 'Primary language across entire career. Backend microservices, platform APIs, enterprise systems.', proficiency: 95 },
+      'TypeScript': { years: '5+', companies: 'BitGo, Embibe', context: 'Staking platform services at BitGo. Platform tooling at Embibe.', proficiency: 85 },
+      'Spring Boot': { years: '8+', companies: 'Embibe, Reward360, Uttara', context: 'Core framework for 22+ microservices. Auth, payments, campaigns.', proficiency: 92 },
+      'Vert.x': { years: '3+', companies: 'Embibe', context: 'High-performance reactive services for sub-100ms latency targets.', proficiency: 78 },
+      'Node.js': { years: '4+', companies: 'BitGo, Embibe', context: 'Backend services and tooling. Staking infrastructure at BitGo.', proficiency: 80 },
+      'Dropwizard': { years: '3+', companies: 'Reward360', context: 'RESTful microservices for loyalty platform integration.', proficiency: 72 },
+      'Hibernate': { years: '8+', companies: 'Embibe, Reward360, Uttara', context: 'ORM for complex domain models across banking and edtech.', proficiency: 88 },
+      'Python': { years: '3+', companies: 'Embibe', context: 'Scripting, automation, and data pipeline tooling.', proficiency: 65 },
+      'JavaScript': { years: '6+', companies: 'Embibe, HireWand', context: 'Chrome extension at HireWand. Frontend tooling at Embibe.', proficiency: 78 },
+      'Groovy': { years: '2+', companies: 'Embibe', context: 'Build scripts and testing frameworks with Spock.', proficiency: 60 },
+      'PostgreSQL': { years: '6+', companies: 'BitGo, Embibe', context: 'Primary relational database for staking and platform services.', proficiency: 88 },
+      'MongoDB': { years: '5+', companies: 'Embibe', context: 'Document store for content, user profiles, and analytics.', proficiency: 82 },
+      'Redis': { years: '6+', companies: 'BitGo, Embibe', context: 'Caching layer, session management, rate limiting.', proficiency: 85 },
+      'Kafka': { years: '5+', companies: 'BitGo, Embibe', context: 'Event streaming for async workflows, notifications, audit logs.', proficiency: 84 },
+      'RabbitMQ': { years: '4+', companies: 'Embibe, Reward360', context: 'Message queuing for campaign processing and notifications.', proficiency: 78 },
+      'Oracle': { years: '4+', companies: 'Reward360, Uttara', context: 'Enterprise database for banking loyalty systems.', proficiency: 72 },
+      'Couchbase': { years: '2+', companies: 'Embibe', context: 'NoSQL document database for high-throughput reads.', proficiency: 62 },
+      'Docker': { years: '6+', companies: 'BitGo, Embibe', context: 'Containerized all microservices. Local dev and CI environments.', proficiency: 88 },
+      'Kubernetes': { years: '5+', companies: 'BitGo, Embibe', context: 'Orchestration for 22+ services. Helm charts, autoscaling.', proficiency: 82 },
+      'Azure': { years: '4+', companies: 'Embibe', context: 'Cloud infrastructure for edtech platform. AKS, CosmosDB, Functions.', proficiency: 75 },
+      'Cloudflare': { years: '3+', companies: 'BitGo', context: 'CDN, DDoS protection, Workers for edge computing.', proficiency: 70 },
+      'Jenkins': { years: '6+', companies: 'Embibe, Reward360', context: 'CI/CD pipelines for automated testing and deployment.', proficiency: 82 },
+      'NewRelic': { years: '4+', companies: 'BitGo, Embibe', context: 'APM monitoring, distributed tracing, custom dashboards.', proficiency: 80 },
+      'Loggly': { years: '3+', companies: 'Embibe', context: 'Centralized log aggregation and search across microservices.', proficiency: 72 },
+      'PagerDuty': { years: '4+', companies: 'BitGo, Embibe', context: 'On-call alerting, incident management, escalation policies.', proficiency: 75 },
+      'OAuth2/JWT': { years: '6+', companies: 'BitGo, Embibe', context: 'Built sub-100ms OAuth2 auth system. JWT token management.', proficiency: 90 },
+      'Distributed Systems': { years: '8+', companies: 'BitGo, Embibe, Reward360', context: 'System design, fault tolerance, consistency patterns, CAP tradeoffs.', proficiency: 88 },
+      'CI/CD': { years: '7+', companies: 'BitGo, Embibe, Reward360', context: 'Pipeline design, automated testing, blue-green deployments.', proficiency: 85 }
+    };
+
     var metaTheme = document.getElementById('meta-theme-color');
 
     /* ══════════════════════════════════════════════════
@@ -1826,12 +2649,41 @@
 
     /* Toggle button */
     var toggleBtn = document.querySelector('.theme-toggle');
-    toggleBtn.addEventListener('click', function() {
+    var themeSwitching = false;
+    toggleBtn.addEventListener('click', function(e) {
+      if (themeSwitching) return;
       var current = html.getAttribute('data-theme') || 'dark';
       var next = current === 'dark' ? 'light' : 'dark';
       toggleBtn.classList.add('spinning');
       setTimeout(function() { toggleBtn.classList.remove('spinning'); }, 500);
-      applyTheme(next, true);
+
+      /* Gamification: theme effects + achievements */
+      if (typeof themeStarsEffect === 'function' && typeof themeSunriseEffect === 'function') {
+        if (next === 'dark') {
+          /* Dark: switch immediately, stars on dark bg */
+          applyTheme(next, true);
+          themeStarsEffect();
+          if (typeof unlockAchievement === 'function') unlockAchievement('night-owl');
+        } else {
+          /* Light: warm glow on dark bg first, then ease into light */
+          themeSwitching = true;
+          themeSunriseEffect(e);
+          /* Slow crossfade: toggle charges → warm glow on dark bg → gentle transition */
+          html.classList.add('theme-transitioning', 'theme-sunrise-slow');
+          /* Theme swaps at 900ms — after toggle peaks but during sky sweep */
+          setTimeout(function() {
+            applyTheme(next, false);
+          }, 900);
+          /* Clean up transition classes after full effect */
+          setTimeout(function() {
+            html.classList.remove('theme-transitioning', 'theme-sunrise-slow');
+            themeSwitching = false;
+          }, 3000);
+          if (typeof unlockAchievement === 'function') unlockAchievement('early-bird');
+        }
+      } else {
+        applyTheme(next, true);
+      }
     });
 
     /* Listen for system preference changes */
@@ -2352,6 +3204,7 @@
         if (konamiIdx === konamiSeq.length) {
           konamiIdx = 0;
           fireConfetti();
+          if (typeof unlockAchievement === 'function') unlockAchievement('code-breaker');
         }
       } else {
         konamiIdx = 0;
@@ -2377,6 +3230,831 @@
           { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(' + rot + 'deg)', opacity: 0 }
         ], { duration: dur, easing: 'cubic-bezier(0.25,0.46,0.45,0.94)', fill: 'forwards' })
         .onfinish = function() { p.remove(); };
+      }
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Toast System
+    ══════════════════════════════════════════════════ */
+    var toastContainer = document.getElementById('gam-toast-container');
+
+    function showToast(icon, title, text) {
+      var toast = document.createElement('div');
+      toast.className = 'gam-toast';
+      toast.innerHTML = '<span class="gam-toast-icon">' + icon + '</span>' +
+        '<div class="gam-toast-text"><div class="gam-toast-title">' + title + '</div>' +
+        '<div>' + text + '</div></div>';
+      toastContainer.appendChild(toast);
+      /* Trigger reflow then animate in */
+      toast.offsetHeight;
+      toast.classList.add('show');
+      setTimeout(function() {
+        toast.classList.remove('show');
+        toast.classList.add('hide');
+        setTimeout(function() { toast.remove(); }, 400);
+      }, 5000);
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Achievement System
+    ══════════════════════════════════════════════════ */
+    var gamPillSections = document.getElementById('gam-sections');
+    var gamPillTrophies = document.getElementById('gam-trophies');
+    var gamRingProgress = document.querySelector('.gam-ring-progress');
+    var gamPanelList = document.getElementById('gam-panel-list');
+    var RING_CIRCUMFERENCE = 97.4;
+
+    function unlockAchievement(id) {
+      if (gamState.achievements.indexOf(id) !== -1) return;
+      gamState.achievements.push(id);
+      gamSave(GAM_ACHIEVE_KEY, gamState.achievements);
+      var def = achievementDefs.find(function(a) { return a.id === id; });
+      if (def) {
+        showToast(def.icon, 'Achievement Unlocked!', def.name);
+      }
+      updatePill();
+      updatePanel();
+      /* All achievements celebration */
+      if (gamState.achievements.length === achievementDefs.length) {
+        setTimeout(function() { celebrateAllAchievements(); }, 800);
+      }
+    }
+
+    function celebrateAllAchievements() {
+      /* Triple confetti burst */
+      fireConfetti();
+      setTimeout(fireConfetti, 400);
+      setTimeout(fireConfetti, 800);
+
+      if (!reduced) {
+        /* Expanding rings */
+        for (var r = 0; r < 3; r++) {
+          (function(idx) {
+            setTimeout(function() {
+              var ring = document.createElement('div');
+              ring.className = 'gam-complete-ring';
+              ring.style.borderColor = ['var(--accent)', 'var(--teal)', '#ffd700'][idx];
+              ring.style.animationDelay = '0s';
+              document.body.appendChild(ring);
+              ring.addEventListener('animationend', function() { ring.remove(); });
+            }, idx * 300);
+          })(r);
+        }
+
+        /* Crown emoji */
+        var crown = document.createElement('div');
+        crown.className = 'gam-crown';
+        crown.textContent = '\uD83D\uDC51';
+        document.body.appendChild(crown);
+        crown.addEventListener('animationend', function() { crown.remove(); });
+      }
+
+      /* Special toast */
+      setTimeout(function() {
+        showToast('\uD83D\uDC51', 'Master Explorer!', 'All 7 achievements unlocked. You\'re legendary.');
+      }, 1200);
+    }
+
+    function markSectionExplored(sectionId) {
+      if (gamState.sections.indexOf(sectionId) !== -1) return;
+      gamState.sections.push(sectionId);
+      gamSave(GAM_SECTIONS_KEY, gamState.sections);
+      updatePill();
+      /* First scroll achievement */
+      if (sectionId !== 'hero' && gamState.sections.length >= 2) {
+        unlockAchievement('first-scroll');
+      }
+      /* Full explorer */
+      if (gamState.sections.length >= TOTAL_SECTIONS) {
+        unlockAchievement('full-explorer');
+      }
+    }
+
+    function updatePill() {
+      var sc = gamState.sections.length;
+      var ac = gamState.achievements.length;
+      gamPillSections.textContent = sc + '/' + TOTAL_SECTIONS;
+      gamPillTrophies.innerHTML = '&#127942; ' + ac + '/' + achievementDefs.length;
+      /* Update ring */
+      var offset = RING_CIRCUMFERENCE - (sc / TOTAL_SECTIONS) * RING_CIRCUMFERENCE;
+      gamRingProgress.style.strokeDashoffset = offset;
+    }
+
+    function updatePanel() {
+      gamPanelList.innerHTML = '';
+      achievementDefs.forEach(function(def) {
+        var unlocked = gamState.achievements.indexOf(def.id) !== -1;
+        var li = document.createElement('li');
+        li.className = 'gam-achiev-item' + (unlocked ? ' unlocked' : '');
+        li.innerHTML = '<div class="gam-achiev-icon">' + (unlocked ? def.icon : '\uD83D\uDD12') + '</div>' +
+          '<div><div class="gam-achiev-name">' + (unlocked ? def.name : '???') + '</div>' +
+          '<div class="gam-achiev-desc">' + (unlocked ? def.desc : 'Keep exploring to unlock') + '</div></div>';
+        gamPanelList.appendChild(li);
+      });
+    }
+
+    /* Initialize pill & panel */
+    updatePill();
+    updatePanel();
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Section IntersectionObserver
+    ══════════════════════════════════════════════════ */
+    var sectionMap = [
+      { selector: '.hero', id: 'hero' },
+      { selector: '.stats-strip', id: 'stats' },
+      { selector: '[aria-labelledby="journey-heading"]', id: 'journey' },
+      { selector: '[aria-labelledby="about-heading"]', id: 'about' },
+      { selector: '[aria-labelledby="expertise-heading"]', id: 'expertise' },
+      { selector: '[aria-labelledby="industries-heading"]', id: 'industries' },
+      { selector: '[aria-labelledby="connect-heading"]', id: 'connect' },
+      { selector: 'footer', id: 'footer' }
+    ];
+
+    var sectionObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var match = sectionMap.find(function(s) { return document.querySelector(s.selector) === entry.target; });
+          if (match) markSectionExplored(match.id);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    sectionMap.forEach(function(s) {
+      var el = document.querySelector(s.selector);
+      if (el) sectionObserver.observe(el);
+    });
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Pill / Panel Toggle
+    ══════════════════════════════════════════════════ */
+    var gamPillBtn = document.querySelector('.gam-pill-btn');
+    var gamPanel = document.querySelector('.gam-panel');
+    var panelOpen = false;
+
+    gamPillBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      panelOpen = !panelOpen;
+      gamPanel.classList.toggle('open', panelOpen);
+      gamPanel.setAttribute('aria-hidden', !panelOpen);
+    });
+
+    document.addEventListener('click', function(e) {
+      if (panelOpen && !gamPanel.contains(e.target) && !gamPillBtn.contains(e.target)) {
+        panelOpen = false;
+        gamPanel.classList.remove('open');
+        gamPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && panelOpen) {
+        panelOpen = false;
+        gamPanel.classList.remove('open');
+        gamPanel.setAttribute('aria-hidden', 'true');
+      }
+    });
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Theme Effects
+    ══════════════════════════════════════════════════ */
+    function themeStarsEffect() {
+      if (reduced) return;
+      var colors = ['#fff', '#e8e8ff', '#ffd700', '#c0c0ff', '#fffacd'];
+
+      /* Phase 1: Scattered twinkling stars */
+      for (var i = 0; i < 30; i++) {
+        var star = document.createElement('div');
+        var isPulse = Math.random() > 0.6;
+        star.className = isPulse ? 'theme-star theme-star--pulse' : 'theme-star';
+        var sz = isPulse ? (4 + Math.random() * 4) : (2 + Math.random() * 3);
+        star.style.width = sz + 'px';
+        star.style.height = sz + 'px';
+        star.style.left = (Math.random() * 100) + 'vw';
+        star.style.top = (Math.random() * 100) + 'vh';
+        star.style.color = colors[Math.floor(Math.random() * colors.length)];
+        star.style.background = star.style.color;
+        star.style.animationDuration = (0.8 + Math.random() * 0.8) + 's';
+        star.style.animationDelay = (Math.random() * 0.6) + 's';
+        document.body.appendChild(star);
+        star.addEventListener('animationend', function() { this.remove(); });
+      }
+
+      /* Phase 2: Shooting stars */
+      for (var s = 0; s < 3; s++) {
+        (function(idx) {
+          setTimeout(function() {
+            var shoot = document.createElement('div');
+            shoot.className = 'theme-shooting-star';
+            var startX = Math.random() * 80 + 10;
+            var startY = Math.random() * 40;
+            shoot.style.left = startX + 'vw';
+            shoot.style.top = startY + 'vh';
+            document.body.appendChild(shoot);
+            var dx = 200 + Math.random() * 200;
+            var dy = 150 + Math.random() * 150;
+            shoot.animate([
+              { transform: 'translate(0,0) rotate(35deg)', opacity: 1 },
+              { transform: 'translate(' + dx + 'px,' + dy + 'px) rotate(35deg)', opacity: 0 }
+            ], { duration: 600 + Math.random() * 400, easing: 'ease-out', fill: 'forwards' })
+            .onfinish = function() { shoot.remove(); };
+          }, 200 + idx * 300);
+        })(s);
+      }
+
+      /* Phase 3: Nebula glow */
+      var nebulaColors = ['rgba(124,92,252,0.15)', 'rgba(45,212,168,0.1)', 'rgba(100,80,220,0.12)'];
+      for (var n = 0; n < 2; n++) {
+        var neb = document.createElement('div');
+        neb.className = 'theme-nebula';
+        var nebSize = 200 + Math.random() * 200;
+        neb.style.width = nebSize + 'px';
+        neb.style.height = nebSize + 'px';
+        neb.style.left = (Math.random() * 80 + 10) + 'vw';
+        neb.style.top = (Math.random() * 80 + 10) + 'vh';
+        neb.style.background = 'radial-gradient(circle,' + nebulaColors[Math.floor(Math.random() * nebulaColors.length)] + ', transparent 70%)';
+        neb.style.animationDelay = (n * 0.3) + 's';
+        document.body.appendChild(neb);
+        neb.addEventListener('animationend', function() { this.remove(); });
+      }
+    }
+
+    function themeSunriseEffect(e) {
+      if (reduced) return;
+      var btnRect = toggleBtn.getBoundingClientRect();
+      var x = btnRect.left + btnRect.width / 2;
+      var y = btnRect.top + btnRect.height / 2;
+
+      /* ── Phase 1 (0ms): Toggle charges up like the sun ── */
+      toggleBtn.classList.add('sun-charging');
+
+      /* ── Phase 2 (400ms): Toggle reaches peak glow ── */
+      setTimeout(function() {
+        toggleBtn.classList.remove('sun-charging');
+        toggleBtn.classList.add('sun-peak');
+      }, 400);
+
+      /* ── Phase 3 (600ms): Sky gradient sweeps top-to-bottom ── */
+      setTimeout(function() {
+        var sky = document.createElement('div');
+        sky.className = 'theme-sky';
+        document.body.appendChild(sky);
+        sky.addEventListener('animationend', function() { sky.remove(); });
+      }, 600);
+
+      /* ── Phase 4 (700ms): Radial glow expands from toggle ── */
+      setTimeout(function() {
+        var sunrise = document.createElement('div');
+        sunrise.className = 'theme-sunrise';
+        var size = Math.max(window.innerWidth, window.innerHeight) * 1.4;
+        sunrise.style.width = size + 'px';
+        sunrise.style.height = size + 'px';
+        sunrise.style.left = (x - size / 2) + 'px';
+        sunrise.style.top = (y - size / 2) + 'px';
+        document.body.appendChild(sunrise);
+        sunrise.addEventListener('animationend', function() { sunrise.remove(); });
+      }, 700);
+
+      /* ── Phase 5 (1000ms): Soft rays extend from sun ── */
+      setTimeout(function() {
+        for (var r = 0; r < 8; r++) {
+          var ray = document.createElement('div');
+          ray.className = 'theme-ray';
+          ray.style.left = x + 'px';
+          ray.style.top = y + 'px';
+          /* Rays mostly pointing downward (120-420 deg range) */
+          var angle = 120 + (r / 8) * 300 + (Math.random() * 20 - 10);
+          ray.style.transform = 'rotate(' + angle + 'deg)';
+          ray.style.animationDelay = (r * 0.1) + 's';
+          document.body.appendChild(ray);
+          ray.addEventListener('animationend', function() { this.remove(); });
+        }
+      }, 1000);
+
+      /* ── Phase 6 (1200ms): Warm motes drift from sun ── */
+      setTimeout(function() {
+        var warmColors = ['rgba(255,210,80,0.3)', 'rgba(255,180,60,0.25)', 'rgba(255,150,50,0.2)', 'rgba(255,230,120,0.25)'];
+        for (var p = 0; p < 10; p++) {
+          var particle = document.createElement('div');
+          particle.className = 'theme-warm-particle';
+          var pSize = 2 + Math.random() * 4;
+          particle.style.width = pSize + 'px';
+          particle.style.height = pSize + 'px';
+          particle.style.left = x + 'px';
+          particle.style.top = y + 'px';
+          particle.style.background = warmColors[Math.floor(Math.random() * warmColors.length)];
+          /* Particles mostly drift downward */
+          var ang = (Math.PI * 0.3) + (Math.random() * Math.PI * 0.4);
+          var dist = 60 + Math.random() * 140;
+          var dx = Math.cos(ang) * dist * (Math.random() > 0.5 ? 1 : -1);
+          var dy = Math.abs(Math.sin(ang) * dist);
+          particle.style.setProperty('--dx', dx + 'px');
+          particle.style.setProperty('--dy', dy + 'px');
+          particle.style.animationDelay = (Math.random() * 0.6) + 's';
+          document.body.appendChild(particle);
+          particle.addEventListener('animationend', function() { this.remove(); });
+        }
+      }, 1200);
+
+      /* ── Phase 7 (800ms+): Page elements wake up based on distance from sun ── */
+      setTimeout(function() {
+        var wakeEls = document.querySelectorAll('.expertise-card, .industry-card, .timeline-card, .stat, .connect-heading, .about-text');
+        var maxDist = Math.sqrt(window.innerWidth * window.innerWidth + window.innerHeight * window.innerHeight);
+
+        wakeEls.forEach(function(el) {
+          var rect = el.getBoundingClientRect();
+          var elX = rect.left + rect.width / 2;
+          var elY = rect.top + rect.height / 2;
+          var dist = Math.sqrt((elX - x) * (elX - x) + (elY - y) * (elY - y));
+          var delay = (dist / maxDist) * 1200;
+
+          setTimeout(function() {
+            el.classList.add('sunrise-touched');
+            setTimeout(function() {
+              el.classList.remove('sunrise-touched');
+              el.classList.add('sunrise-settled');
+              setTimeout(function() {
+                el.classList.remove('sunrise-settled');
+              }, 1200);
+            }, 600);
+          }, delay);
+        });
+      }, 800);
+
+      /* ── Phase 8 (2000ms): Toggle glow fades gracefully ── */
+      setTimeout(function() {
+        toggleBtn.classList.add('sun-fade');
+        toggleBtn.classList.remove('sun-peak');
+        setTimeout(function() {
+          toggleBtn.classList.remove('sun-fade');
+        }, 1500);
+      }, 2000);
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Tech Tooltips
+    ══════════════════════════════════════════════════ */
+    var tooltip = document.getElementById('tech-tooltip');
+    var ttArrow = document.getElementById('tech-tooltip-arrow');
+    var ttName = document.getElementById('tech-tooltip-name');
+    var ttMeta = document.getElementById('tech-tooltip-meta');
+    var ttContext = document.getElementById('tech-tooltip-context');
+    var ttBar = document.getElementById('tech-tooltip-bar');
+    var ttBarLabel = document.getElementById('tech-tooltip-bar-label');
+    var activeTag = null;
+
+    function showTooltip(tag) {
+      var text = tag.textContent.trim();
+      var data = techData[text];
+      if (!data) return;
+
+      if (activeTag) activeTag.classList.remove('tag-active');
+      activeTag = tag;
+      tag.classList.add('tag-active');
+
+      ttName.textContent = text;
+      ttMeta.textContent = data.years + ' \u00B7 ' + data.companies;
+      ttContext.textContent = data.context;
+      ttBar.style.width = '0%';
+      ttBarLabel.textContent = data.proficiency + '%';
+
+      tooltip.classList.remove('above', 'below');
+      tooltip.classList.add('visible');
+      tooltip.setAttribute('aria-hidden', 'false');
+
+      /* Position */
+      var rect = tag.getBoundingClientRect();
+      var tw = 280;
+      var ttH = tooltip.offsetHeight;
+      var above = rect.top - ttH - 12 > 0;
+
+      var leftPos = rect.left + rect.width / 2 - tw / 2;
+      leftPos = Math.max(8, Math.min(leftPos, window.innerWidth - tw - 8));
+
+      if (above) {
+        tooltip.style.top = (rect.top - ttH - 12) + 'px';
+        tooltip.classList.add('above');
+      } else {
+        tooltip.style.top = (rect.bottom + 12) + 'px';
+        tooltip.classList.add('below');
+      }
+      tooltip.style.left = leftPos + 'px';
+
+      /* Arrow position */
+      var arrowLeft = rect.left + rect.width / 2 - leftPos - 6;
+      arrowLeft = Math.max(16, Math.min(arrowLeft, tw - 28));
+      ttArrow.style.left = arrowLeft + 'px';
+
+      /* Animate bar */
+      requestAnimationFrame(function() {
+        ttBar.style.width = data.proficiency + '%';
+      });
+    }
+
+    function hideTooltip() {
+      tooltip.classList.remove('visible');
+      tooltip.setAttribute('aria-hidden', 'true');
+      if (activeTag) {
+        activeTag.classList.remove('tag-active');
+        activeTag = null;
+      }
+    }
+
+    /* Add click + keyboard handlers to all tags */
+    document.querySelectorAll('.tag').forEach(function(tag) {
+      tag.setAttribute('role', 'button');
+      tag.setAttribute('tabindex', '0');
+      tag.style.cursor = 'pointer';
+
+      tag.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (activeTag === tag) {
+          hideTooltip();
+        } else {
+          showTooltip(tag);
+        }
+      });
+
+      tag.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          e.stopPropagation();
+          if (activeTag === tag) {
+            hideTooltip();
+          } else {
+            showTooltip(tag);
+          }
+        }
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      if (activeTag && !tooltip.contains(e.target) && !e.target.classList.contains('tag')) {
+        hideTooltip();
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && activeTag) {
+        hideTooltip();
+      }
+    });
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Secret Click Patterns
+    ══════════════════════════════════════════════════ */
+    /* Triple-click hero name → Matrix rain */
+    var heroClickTimes = [];
+    heroNameEl.addEventListener('click', function() {
+      var now = Date.now();
+      heroClickTimes.push(now);
+      heroClickTimes = heroClickTimes.filter(function(t) { return now - t < 500; });
+      if (heroClickTimes.length >= 3) {
+        heroClickTimes = [];
+        matrixRain();
+        unlockAchievement('secret-agent');
+      }
+    });
+
+    function matrixRain() {
+      if (reduced) {
+        showToast('\uD83D\uDFE2', 'Matrix', 'You found the Matrix!');
+        return;
+      }
+      var container = document.createElement('div');
+      container.className = 'matrix-rain';
+      container.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(container);
+
+      var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*';
+      var cols = Math.floor(window.innerWidth / 20);
+      for (var i = 0; i < cols; i++) {
+        var col = document.createElement('div');
+        col.className = 'matrix-col';
+        var text = '';
+        var len = 8 + Math.floor(Math.random() * 16);
+        for (var j = 0; j < len; j++) {
+          text += chars[Math.floor(Math.random() * chars.length)];
+        }
+        col.textContent = text;
+        col.style.left = (i * 20 + Math.random() * 10) + 'px';
+        col.style.animationDuration = (1.5 + Math.random() * 2) + 's';
+        col.style.animationDelay = (Math.random() * 1.5) + 's';
+        col.style.opacity = (0.3 + Math.random() * 0.7);
+        container.appendChild(col);
+      }
+
+      setTimeout(function() {
+        container.style.transition = 'opacity 0.5s';
+        container.style.opacity = '0';
+        setTimeout(function() { container.remove(); }, 500);
+      }, 3000);
+    }
+
+    /* 5x click location pin → Toast */
+    var locationEl = document.querySelector('.hero-location');
+    var locationClicks = [];
+    if (locationEl) {
+      locationEl.style.cursor = 'pointer';
+      locationEl.addEventListener('click', function() {
+        var now = Date.now();
+        locationClicks.push(now);
+        locationClicks = locationClicks.filter(function(t) { return now - t < 3000; });
+        if (locationClicks.length >= 5) {
+          locationClicks = [];
+          showToast('\uD83D\uDE97', 'Bangalore', 'Yes, Bangalore. The traffic is real.');
+          unlockAchievement('secret-agent');
+        }
+      });
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Scroll Depth Reward
+    ══════════════════════════════════════════════════ */
+    if (!gamState.footerRewarded) {
+      var footerEl = document.querySelector('footer');
+      if (footerEl) {
+        var footerObs = new IntersectionObserver(function(entries) {
+          if (entries[0].isIntersecting) {
+            gamState.footerRewarded = true;
+            gamSave(GAM_FOOTER_KEY, true);
+            fireConfetti();
+            setTimeout(function() {
+              showToast('\uD83C\uDF89', 'Congrats!', 'You made it to the end! That\'s commitment.');
+            }, 600);
+            footerObs.disconnect();
+          }
+        }, { threshold: 0.5 });
+        footerObs.observe(footerEl);
+      }
+    }
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Command Terminal
+    ══════════════════════════════════════════════════ */
+    var termOverlay = document.querySelector('.terminal-overlay');
+    var termBody = document.getElementById('terminal-body');
+    var termInput = document.getElementById('terminal-input');
+    var termTrigger = document.querySelector('.terminal-trigger');
+    var termHistory = [];
+    var termHistIdx = -1;
+    var termOpen = false;
+
+    function openTerminal() {
+      if (termOpen) return;
+      termOpen = true;
+      termOverlay.classList.add('open');
+      termOverlay.setAttribute('aria-hidden', 'false');
+      termInput.focus();
+      unlockAchievement('terminal-hacker');
+      if (termBody.children.length === 0) {
+        appendTermLines([
+          { type: 'accent', text: 'Welcome to Doddanna\'s terminal. Type "help" to get started.' },
+          { type: 'response', text: '' }
+        ]);
+      }
+    }
+
+    function closeTerminal() {
+      if (!termOpen) return;
+      termOpen = false;
+      termOverlay.classList.remove('open');
+      termOverlay.setAttribute('aria-hidden', 'true');
+    }
+
+    function appendTermLines(lines) {
+      lines.forEach(function(line, i) {
+        setTimeout(function() {
+          var div = document.createElement('div');
+          div.className = 'terminal-line terminal-line-' + (line.type || 'response');
+          div.textContent = line.text;
+          termBody.appendChild(div);
+          termBody.scrollTop = termBody.scrollHeight;
+        }, reduced ? 0 : i * 30);
+      });
+    }
+
+    function processCommand(input) {
+      var raw = input.trim();
+      if (!raw) return;
+
+      /* Echo the command */
+      var promptLine = document.createElement('div');
+      promptLine.className = 'terminal-line';
+      promptLine.innerHTML = '<span class="terminal-line-prompt">$ </span><span class="terminal-line-cmd">' +
+        raw.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+      termBody.appendChild(promptLine);
+
+      termHistory.push(raw);
+      termHistIdx = termHistory.length;
+
+      /* Strip leading / so both "help" and "/help" work */
+      if (raw.charAt(0) === '/') raw = raw.substring(1);
+      var parts = raw.split(/\s+/);
+      var cmd = parts[0].toLowerCase();
+      var args = parts.slice(1).join(' ');
+
+      if (cmd === 'clear') {
+        termBody.innerHTML = '';
+        return;
+      }
+
+      if (cmd === 'exit' || cmd === 'quit') {
+        closeTerminal();
+        return;
+      }
+
+      var handler = terminalCommands[cmd];
+      if (handler) {
+        var result = handler(args);
+        appendTermLines(result);
+      } else {
+        appendTermLines([
+          { type: 'response', text: 'Command not found: ' + cmd + '. Type "help" for available commands.' }
+        ]);
+      }
+    }
+
+    var terminalCommands = {
+      help: function() {
+        return [
+          { type: 'heading', text: 'Available Commands' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  help        Show this help menu' },
+          { type: 'accent', text: '  about       Who is Doddanna?' },
+          { type: 'accent', text: '  skills [n]  List skills or detail one (e.g. skills kafka)' },
+          { type: 'accent', text: '  career      Career timeline' },
+          { type: 'accent', text: '  contact     Get in touch' },
+          { type: 'accent', text: '  secret      Hmm, what could this be?' },
+          { type: 'accent', text: '  clear       Clear terminal' },
+          { type: 'accent', text: '  exit        Close terminal' }
+        ];
+      },
+      about: function() {
+        return [
+          { type: 'heading', text: 'Doddanna B' },
+          { type: 'response', text: 'Staff Engineer | Platform Architect | Blockchain Infrastructure' },
+          { type: 'response', text: '' },
+          { type: 'response', text: 'Currently building blockchain infrastructure at BitGo \u2014' },
+          { type: 'response', text: 'staking platform, stablecoin services, token onboarding.' },
+          { type: 'response', text: '' },
+          { type: 'response', text: '11+ years | 25+ microservices | 4 industries' },
+          { type: 'dim', text: 'Bangalore, India' }
+        ];
+      },
+      career: function() {
+        return [
+          { type: 'heading', text: 'Career Timeline' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  2024-Present  BitGo        Staff Engineer' },
+          { type: 'response', text: '                Blockchain & Digital Assets' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  2020-2024     Embibe       Staff Engineer' },
+          { type: 'response', text: '                EdTech Platform' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  2017-2020     Reward360    Tech Lead' },
+          { type: 'response', text: '                Loyalty Program' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  2016-2017     HireWand     Software Engineer' },
+          { type: 'response', text: '                HR Tech' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  2015-2016     Uttara       Software Engineer' },
+          { type: 'response', text: '                Software Services' }
+        ];
+      },
+      contact: function() {
+        return [
+          { type: 'heading', text: 'Contact' },
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  Email      doddannab17@gmail.com' },
+          { type: 'accent', text: '  LinkedIn   linkedin.com/in/doddanna' },
+          { type: 'accent', text: '  GitHub     github.com/Doddanna17' },
+          { type: 'response', text: '' },
+          { type: 'dim', text: '  Open to conversations about blockchain, platform eng, and system design.' }
+        ];
+      },
+      secret: function() {
+        return [
+          { type: 'response', text: '' },
+          { type: 'accent', text: '  You found the terminal. But there are more secrets...' },
+          { type: 'response', text: '' },
+          { type: 'dim', text: '  Hint: Try the Konami code, triple-click my name,' },
+          { type: 'dim', text: '  or click the Bangalore pin 5 times fast.' },
+          { type: 'response', text: '' }
+        ];
+      },
+      skills: function(args) {
+        if (args && args.trim()) {
+          var name = args.trim();
+          var key = Object.keys(techData).find(function(k) {
+            return k.toLowerCase() === name.toLowerCase();
+          });
+          if (!key) {
+            return [{ type: 'response', text: 'Unknown skill: ' + name + '. Try "skills" to see all.' }];
+          }
+          var t = techData[key];
+          var barLen = 20;
+          var filled = Math.round(t.proficiency / 100 * barLen);
+          var bar = '\u2588'.repeat(filled) + '\u2591'.repeat(barLen - filled);
+          return [
+            { type: 'heading', text: key },
+            { type: 'accent', text: '  Experience: ' + t.years },
+            { type: 'accent', text: '  Companies:  ' + t.companies },
+            { type: 'response', text: '  ' + t.context },
+            { type: 'response', text: '' },
+            { type: 'accent', text: '  Proficiency: [' + bar + '] ' + t.proficiency + '%' }
+          ];
+        }
+        var lines = [{ type: 'heading', text: 'All Skills' }, { type: 'response', text: '' }];
+        var keys = Object.keys(techData);
+        var row = '  ';
+        for (var i = 0; i < keys.length; i++) {
+          row += keys[i] + (i < keys.length - 1 ? ', ' : '');
+          if (row.length > 56) {
+            lines.push({ type: 'accent', text: row });
+            row = '  ';
+          }
+        }
+        if (row.trim()) lines.push({ type: 'accent', text: row });
+        lines.push({ type: 'response', text: '' });
+        lines.push({ type: 'dim', text: '  Use "skills [name]" for detail. e.g. skills kafka' });
+        return lines;
+      }
+    };
+
+    /* Terminal event handlers */
+    termTrigger.addEventListener('click', openTerminal);
+
+    termOverlay.addEventListener('click', function(e) {
+      if (e.target === termOverlay) closeTerminal();
+    });
+
+    termInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        processCommand(termInput.value);
+        termInput.value = '';
+      } else if (e.key === 'Tab') {
+        /* Tab-complete from available commands */
+        e.preventDefault();
+        var val = termInput.value.replace(/^\//, '').toLowerCase().trim();
+        var cmds = Object.keys(terminalCommands);
+        if (!val) {
+          /* Show all commands */
+          processCommand('help');
+          return;
+        }
+        var match = cmds.find(function(c) { return c.indexOf(val) === 0; });
+        if (match) termInput.value = match;
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (termHistory.length > 0 && termHistIdx > 0) {
+          termHistIdx--;
+          termInput.value = termHistory[termHistIdx];
+        }
+      } else if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (termHistIdx < termHistory.length - 1) {
+          termHistIdx++;
+          termInput.value = termHistory[termHistIdx];
+        } else {
+          termHistIdx = termHistory.length;
+          termInput.value = '';
+        }
+      } else if (e.key === 'Escape') {
+        closeTerminal();
+      }
+    });
+
+    /* Backtick or / key opens terminal, Escape closes it */
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && termOpen) {
+        e.preventDefault();
+        closeTerminal();
+        return;
+      }
+      if ((e.key === '`' || e.key === '/') && !termOpen && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+        e.preventDefault();
+        openTerminal();
+        /* Show available commands when opened with / */
+        if (e.key === '/') {
+          setTimeout(function() {
+            processCommand('help');
+          }, 100);
+        }
+      }
+    });
+
+    /* ══════════════════════════════════════════════════
+       GAMIFICATION — Cursor hover for new elements
+    ══════════════════════════════════════════════════ */
+    if (!isTouch && !reduced) {
+      var gamInteractives = document.querySelectorAll('.terminal-trigger, .gam-pill-btn');
+      var cursorEl = document.querySelector('.cursor');
+      if (cursorEl) {
+        gamInteractives.forEach(function(el) {
+          el.addEventListener('mouseenter', function() { cursorEl.classList.add('hovering'); });
+          el.addEventListener('mouseleave', function() { cursorEl.classList.remove('hovering'); });
+        });
       }
     }
 
