@@ -1087,23 +1087,62 @@
     }
 
     .timeline-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #ffffff;
+      border: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #fff;
       flex-shrink: 0;
+      overflow: hidden;
+      font-weight: 700;
+      font-size: 0;
+      color: transparent;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .timeline-logo:hover {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+    .timeline-logo.logo-fallback {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dim));
+      color: #fff;
+      font-size: 1.1rem;
+      border: none;
+    }
+    .timeline-logo.logo-dark-bg {
+      background: #0d109c;
+      border-color: #1a1db0;
+    }
+    .timeline-logo:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+    .timeline-logo img {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+    }
+    .timeline-logo.logo-fallback img {
+      display: none;
     }
 
     .timeline-company {
       font-size: 1.1rem;
       font-weight: 700;
       color: var(--text);
+    }
+    .timeline-company a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .timeline-company a:hover {
+      color: var(--accent);
     }
 
     .timeline-role {
@@ -1149,7 +1188,8 @@
       .timeline-line, .timeline-progress { left: 6px; }
       .timeline-card { padding: 20px; }
       .timeline-header { gap: 10px; }
-      .timeline-logo { width: 36px; height: 36px; font-size: 1rem; }
+      .timeline-logo { width: 42px; height: 42px; }
+      .timeline-logo img { width: 32px; height: 32px; }
     }
 
     /* ══════════════════════════════════════════════════
@@ -2316,9 +2356,9 @@
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
               <div class="timeline-header">
-                <div class="timeline-logo" aria-hidden="true">B</div>
+                <a href="https://www.bitgo.com/products/staking/" target="_blank" rel="noopener noreferrer" class="timeline-logo" aria-label="BitGo website">B<img src="https://www.google.com/s2/favicons?domain=bitgo.com&sz=128" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fallback')"></a>
                 <div>
-                  <div class="timeline-company">BitGo</div>
+                  <div class="timeline-company"><a href="https://www.bitgo.com/products/staking/" target="_blank" rel="noopener noreferrer">BitGo</a></div>
                   <div class="timeline-role">Engineer 3</div>
                 </div>
               </div>
@@ -2326,7 +2366,7 @@
                 <span class="timeline-duration">Sep 2024 &ndash; Present</span>
                 <span class="timeline-industry">Blockchain &amp; Digital Assets</span>
               </div>
-              <p class="timeline-desc">Building staking platform microservices for institutional-grade digital asset infrastructure. Shipped onboarding and stablecoin services.</p>
+              <p class="timeline-desc">Building staking platform microservices for institutional-grade digital asset infrastructure. Contributing to token onboarding and stablecoin services.</p>
             </div>
           </div>
 
@@ -2334,9 +2374,9 @@
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
               <div class="timeline-header">
-                <div class="timeline-logo" aria-hidden="true">E</div>
+                <a href="https://www.embibe.com/" target="_blank" rel="noopener noreferrer" class="timeline-logo logo-dark-bg" aria-label="Embibe website">E<img src="https://assets.embibe.com/production/web-assets/assets/images/EmbibeLandingPage/embibe-logo.svg" alt="" loading="lazy" onerror="this.parentElement.classList.remove('logo-dark-bg');this.parentElement.classList.add('logo-fallback')"></a>
                 <div>
-                  <div class="timeline-company">Embibe</div>
+                  <div class="timeline-company"><a href="https://www.embibe.com/" target="_blank" rel="noopener noreferrer">Embibe</a></div>
                   <div class="timeline-role">Staff Engineer</div>
                 </div>
               </div>
@@ -2344,7 +2384,7 @@
                 <span class="timeline-duration">Jan 2020 &ndash; Aug 2024</span>
                 <span class="timeline-industry">EdTech Platform</span>
               </div>
-              <p class="timeline-desc">Owned 22+ platform services including auth, payments, campaigns, and notifications. Built sub-100ms OAuth2 system.</p>
+              <p class="timeline-desc">Architected and built 22+ platform services — auth, payments, campaigns, and notifications — from the ground up.</p>
             </div>
           </div>
 
@@ -2352,9 +2392,9 @@
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
               <div class="timeline-header">
-                <div class="timeline-logo" aria-hidden="true">R</div>
+                <a href="https://www.reward360.co/" target="_blank" rel="noopener noreferrer" class="timeline-logo" aria-label="Reward360 website">R<img src="https://www.google.com/s2/favicons?domain=reward360.co&sz=128" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fallback')"></a>
                 <div>
-                  <div class="timeline-company">Reward360</div>
+                  <div class="timeline-company"><a href="https://www.reward360.co/" target="_blank" rel="noopener noreferrer">Reward360</a></div>
                   <div class="timeline-role">Tech Lead</div>
                 </div>
               </div>
@@ -2370,9 +2410,9 @@
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
               <div class="timeline-header">
-                <div class="timeline-logo" aria-hidden="true">H</div>
+                <a href="https://hirewand.com/" target="_blank" rel="noopener noreferrer" class="timeline-logo" aria-label="HireWand website">H<img src="https://hirewand.com/images/hirewand_logo.png" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fallback')"></a>
                 <div>
-                  <div class="timeline-company">HireWand</div>
+                  <div class="timeline-company"><a href="https://hirewand.com/" target="_blank" rel="noopener noreferrer">HireWand</a></div>
                   <div class="timeline-role">Software Engineer</div>
                 </div>
               </div>
@@ -2388,9 +2428,9 @@
             <div class="timeline-dot" aria-hidden="true"></div>
             <div class="timeline-card">
               <div class="timeline-header">
-                <div class="timeline-logo" aria-hidden="true">U</div>
+                <a href="https://www.uttarainfo.com/" target="_blank" rel="noopener noreferrer" class="timeline-logo" aria-label="Uttara Info Solutions website">U<img src="https://www.uttarainfo.com/images/logo-1.jpg" alt="" loading="lazy" onerror="this.parentElement.classList.add('logo-fallback')"></a>
                 <div>
-                  <div class="timeline-company">Uttara Info Solutions</div>
+                  <div class="timeline-company"><a href="https://www.uttarainfo.com/" target="_blank" rel="noopener noreferrer">Uttara Info Solutions</a></div>
                   <div class="timeline-role">Software Engineer</div>
                 </div>
               </div>
@@ -2699,7 +2739,7 @@
       'NewRelic': { years: '4+', companies: 'BitGo, Embibe', context: 'APM monitoring, distributed tracing, custom dashboards.', proficiency: 80 },
       'Loggly': { years: '3+', companies: 'Embibe', context: 'Centralized log aggregation and search across microservices.', proficiency: 72 },
       'PagerDuty': { years: '4+', companies: 'BitGo, Embibe', context: 'On-call alerting, incident management, escalation policies.', proficiency: 75 },
-      'OAuth2/JWT': { years: '6+', companies: 'BitGo, Embibe', context: 'Built sub-100ms OAuth2 auth system. JWT token management.', proficiency: 90 },
+      'OAuth2/JWT': { years: '6+', companies: 'BitGo, Embibe', context: 'Designed and built authentication system. JWT token management.', proficiency: 90 },
       'Distributed Systems': { years: '8+', companies: 'BitGo, Embibe, Reward360', context: 'System design, fault tolerance, consistency patterns, CAP tradeoffs.', proficiency: 88 },
       'CI/CD': { years: '7+', companies: 'BitGo, Embibe, Reward360', context: 'Pipeline design, automated testing, blue-green deployments.', proficiency: 85 }
     };
